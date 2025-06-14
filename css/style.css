@@ -59,11 +59,10 @@ a {
   display: flex;
   align-items: center;
   gap: 70px;
-  padding: 25px 0;
-  top: 0;
+  padding: 25px 0px;
   margin-left: -65px;
+  justify-content: flex-start;
 }
-
 .main-header .logo a {
   font-size: 2rem;
   font-weight: 300;
@@ -216,7 +215,7 @@ a {
 }
 
 .portfolio-section {
-  margin-top: 4vh;
+  margin-top: 8vh;
 
   text-align: center;
   position: absolute;
@@ -261,18 +260,22 @@ a {
 }
 
 .nav-chevron {
-  position: absolute;
-  top:150px;
+  position: relative;
+
   display: inline-block;
   color: #d2ad75;
   font-size: 4.5rem;
   font-weight: 50;
   font-style: normal;
   text-decoration: none;
-  margin-top: -60px;
+
 }
 .nav-chevron.down {
-  top:200px;
+
+  margin-top: 96px;
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
   transform: rotate(180deg);
 }
 
@@ -283,13 +286,13 @@ a {
 .portfolio-section h2 {
   color: linear-gradient(to bottom, #d2ad75, #ffffff);
   font-family: "Jim Nightshade", cursive;
-  /* margin-left: 600px; */
+
   font-size: 6rem;
   font-weight: 400;
   margin-top: -165px;
   justify-content: center;
   align-items: center;
-  /* margin: auto; */
+
   z-index: 10;
   position: relative;
 }
@@ -356,11 +359,17 @@ a {
   border: none;
   margin-top: 50px;
   box-shadow: 4px 6px 12px 0px rgba(0, 0, 0, 0.4);
-  /* margin-top: -17px; */
+
+}
+.portfolio-btn:hover {
+
+  background-color: rgba(210, 173, 117, 0.1);
+  color: #DDDDDD;
+  box-shadow: 6px 8px 16px 0px rgba(0, 0, 0, 0.5);
 }
 
 .contact-section {
-  margin-top: 240px;
+  margin-top: 175px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0px;
@@ -382,7 +391,7 @@ a {
   margin-bottom: 30px;
   line-height: 1.2;
   font-weight: 400;
-  /* margin-right: -200px; */
+
   color: #D2AD75;
 }
 .contact-details h2{
@@ -390,13 +399,13 @@ a {
 }
  .script-font {
   font-family: "Jim Nightshade", cursive;
-  /* font-style: italic; */
+
   text-align: center;
   font-size: 4.5rem;
   color: #D2AD75;
   display: block;
-  /* margin-left: 20px; */
-  /* margin-right: 200px; */
+
+
   margin-top: -20px;
   line-height: 1;
   font-weight: 400;
@@ -404,7 +413,7 @@ a {
 
 .contact-details > p {
   font-family: var(--font-span);
-  /* line-height: 1.8; */
+
   color: #dedede;
   word-spacing: 6px;
   margin-bottom: 40px;
@@ -435,23 +444,23 @@ a {
 
 .contact-form-container {
   margin-left: 150px;
-  background-color: var(--color-form-bg); /* Solid background color for the form */
-  padding: 40px 50px; /* Adjusted padding slightly */
-  border-radius: 8px; /* Slightly more rounded than 5px */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Adjusted shadow for deeper look */
-  border: none; /* No border as seen in the image */
-  width: 100%; /* Take full width of its parent */
-  max-width: 500px; /* Limit max width for better form appearance */
-  box-sizing: border-box; /* Include padding in width calculation */
+  background-color: var(--color-form-bg);
+  padding: 40px 50px;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border: none;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
 }
 
 .contact-form-container h3 {
-  font-family: var(--font-heading-main); /* Match title font */
-  font-size: 3rem; /* Matches the image's "Contact Form" size */
+  font-family: var(--font-heading-main);
+  font-size: 3rem;
   text-align: center;
   margin-bottom: 30px;
-  color: #DDDDDD; /* Gold color for form title */
-  line-height: 1; /* Ensure no extra space above/below title */
+  color: #DDDDDD;
+  line-height: 1;
 }
 
 .contact-form-container input,
@@ -459,53 +468,53 @@ a {
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--text-gold); /* Gold border for inputs */
-  padding: 15px 0 10px 0; /* Adjusted padding for input fields */
+  border-bottom: 1px solid var(--text-gold);
+  padding: 15px 0 10px 0;
   margin-bottom: 25px;
-  color: #D2AD75; /* Text input color */
-  font-size: 1.1rem; /* Slightly larger input text */
-  font-family: var(--font-span); /* Consistent font for inputs */
-  outline: none; /* Remove default outline on focus */
-  box-sizing: border-box; /* Include padding in width calculation */
+  color: #D2AD75;
+  font-size: 1.1rem;
+  font-family: var(--font-span);
+  outline: none;
+  box-sizing: border-box;
 }
 
-/* Style for input placeholders */
+
 .contact-form-container input::placeholder,
 .contact-form-container textarea::placeholder {
-  color: var(--text-placeholder-color); /* Lighter placeholder text */
+  color: var(--text-placeholder-color);
   font-family: var(--font-span);
 }
 
 .contact-form-container textarea {
-  resize: vertical; /* Allow vertical resizing for textarea */
-  min-height: 80px; /* Minimum height for textarea */
+  resize: vertical;
+  min-height: 80px;
 }
 
-/* Styling for the Send Form button */
+
 .contact-form-container .btn {
   width: 70%;
   text-align: center;
   padding: 15px 25px;
-  /* left: 50%; */
+
   margin-left: 50px;
-  background-color: transparent; /* Transparent background */
-  /* border: 1px solid var(--text-gold); Gold border */
+  background-color: transparent;
+
   border: none;
-  color: var(--text-gold); /* Gold text */
-  font-family: 'Jacques Francois', serif; /* Font from your previous button request */
+  color: var(--text-gold);
+  font-family: 'Jacques Francois', serif;
   font-size: 1.35rem;
   font-weight: 400;
-  border-radius: 3px; /* Subtle border-radius */
+  border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 4px 6px 12px 0px rgba(0, 0, 0, 0.4); /* Subtle shadow for the button */
-  margin-top: 20px; /* Space above button */
+  box-shadow: 4px 6px 12px 0px rgba(0, 0, 0, 0.4);
+  margin-top: 20px;
 }
 
 .contact-form-container .btn:hover {
-  background-color: rgba(210, 173, 117, 0.1); /* Slightly filled on hover */
-  color: #DDDDDD; /* White text on hover for contrast */
-  box-shadow: 6px 8px 16px 0px rgba(0, 0, 0, 0.5); /* More prominent shadow */
+  background-color: rgba(210, 173, 117, 0.1);
+  color: #DDDDDD;
+  box-shadow: 6px 8px 16px 0px rgba(0, 0, 0, 0.5);
 }
 
 .contact-form-container .btn:active {
@@ -529,7 +538,7 @@ a {
 .side-icons-left {
   position: absolute;
   left: 20px;
-  top: 88%;
+  top: 96%;
   transform: translateY(-50%);
   transform: scale(0.65);
   display: flex;
