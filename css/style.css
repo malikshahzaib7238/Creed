@@ -21,11 +21,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -37,7 +32,7 @@ body {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1920px;
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
@@ -53,9 +48,9 @@ a {
   align-items: center;
   gap: 70px;
   padding: 45px 5px;
-
   justify-content: flex-start;
 }
+
 .main-header .logo a {
   font-size: 2rem;
   font-weight: 300;
@@ -88,13 +83,14 @@ a {
     display: none;
   }
 }
+
+
 .hero {
-  position: relative;
+  position: flex;
   min-height: 95vh;
   display: flex;
   align-items: center;
-  margin-left: 42px;
-
+  margin-left: 111px;
   z-index: 1;
 }
 
@@ -118,29 +114,28 @@ a {
 
 .hero-content h2 {
   font-family: var(--font-heading-main);
-
   font-size: 2.5rem;
   color: #d2ad75;
   font-weight: 400;
   text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.4);
-
   letter-spacing: -2%;
   margin-top: -24px;
-  margin-left: 24px;
+  margin-left: 30px;
   margin-bottom: 30px;
   position: relative;
 }
 
 .hero-content p {
   font-family: var(--font-span);
-
   font-size: 1.8rem;
   line-height: 1.6;
   margin-top: -12px;
   margin-bottom: 40px;
-  max-width: 480px;
+  min-width: 580px;
   color: #dedede;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.62px;
+  text-shadow: -4.31px 11.41px 7.18px #000000;
+  word-spacing:25px;
 }
 
 .hero-content p span {
@@ -153,7 +148,6 @@ a {
   border: 1px solid var(--text-gold);
   padding: 12px 35px;
   color: var(--text-gold);
-
   font-family: "Jacques Francois", serif;
   font-size: 1.35rem;
   border-radius: 50px;
@@ -166,43 +160,47 @@ a {
   color: var(--bg-dark);
 }
 .hero-image {
-  position: absolute;
-  right: -8vw;
-  top: 34%;
-  transform: translateY(-50%);
+  /* position: absolute; */
+  /* right: -8vw; */
+  /* top: 34%; */
+  /* transform: translateY(-50%); */
+  position: relative;
+  overflow: visible;
   width: 100%;
-  max-width: 1130px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* max-width: 1720px; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
 }
 .hero-image img {
-  width: 100%;
-
+  position: absolute;
+  width: 1000px;
   height: auto;
+  /* height:595px; */
+  transform:scale(1.5);
+  top: -92px;
+    left: -50px;
   filter: drop-shadow(5px 10px 20px rgba(0, 0, 0, 0.5));
 }
 
 .hero-image h3 {
   font-family: "Viaoda Libre", serif;
   font-weight: 400;
-
   letter-spacing: -2%;
   font-size: 61px;
   color: #d2ad75;
-  margin-top: -80px;
-  margin-left: 150px;
+  margin-top: 620px;
+  margin-left: -180px;
   position: relative;
   z-index: 50;
   text-align: center;
+  text-shadow: 0px -5px 69.2px #FFC56D;
 }
 
 @media (max-width: 900px) {
   .hero-image h3 {
     font-family: "Viaoda Libre", serif;
     font-weight: 400;
-
     letter-spacing: -2%;
     font-size: 55px;
     color: #d2ad75;
@@ -220,7 +218,6 @@ a {
     display: flex;
     align-items: center;
     margin-left: 42px;
-
     z-index: 1;
   }
   .flex-heading {
@@ -260,12 +257,10 @@ a {
   }
   .hero-content h2 {
     font-family: var(--font-heading-main);
-
     font-size: 2.5rem;
     color: #d2ad75;
     font-weight: 400;
     text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.4);
-
     letter-spacing: -2%;
     margin-top: -24px;
     margin-left: 24px;
@@ -275,7 +270,6 @@ a {
 
   .hero-content p {
     font-family: var(--font-span);
-
     font-size: 1.2rem;
     line-height: 1.6;
     margin-top: -12px;
@@ -284,7 +278,6 @@ a {
     margin-left: 20px;
     color: #dedede;
     margin-left: 50px;
-
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   }
 
@@ -310,10 +303,8 @@ a {
     position: absolute;
     right: 12%;
     top: 40%;
-
     width: 100%;
     max-width: 1130px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -341,7 +332,6 @@ a {
 
 .portfolio-section {
   margin-top: 8vh;
-
   text-align: center;
   position: absolute;
   z-index: 1000;
@@ -361,11 +351,8 @@ a {
   border-radius: 50%;
   display: inline-block;
   display: flex;
-
   padding: 4px;
-
   border: 1px solid #d2ad75;
-
   box-shadow: 0 0 3px 1.39px #ffc46c;
 }
 .testimonial img {
@@ -1029,37 +1016,39 @@ body {
     margin-left: -39px;
     height: auto;
   }
-  .testimonial{
-    margin-top:-55px;
+  .testimonial {
+    margin-top: -55px;
   }
-  .testimonial-text p{
+  .testimonial-text p {
     font-size: 1.1rem;
   }
   .gallery img {
     height: 164px;
     width: auto;
-}
-.gallery .main-image{
-  transform: scale(1.2);
-}
-.portfolio-section h2 {
-  font-size: 4.5rem;
-  margin-bottom: 20px;
-;
-}
-.hero-content p, .contact-details > p {
-  margin-left: 0px;
-  margin-top: 0px;
-  font-size: 1.3rem;
-}
-.portfolio h2, .contact-details h2, .contact-form-container h3 {
-  font-size: 2.5rem;
-  margin-left: -20px;
-}
-.vertical-text-widget-small {
-  position: absolute;
+  }
+  .gallery .main-image {
+    transform: scale(1.2);
+  }
+  .portfolio-section h2 {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+  }
+  .hero-content p,
+  .contact-details > p {
+    margin-left: 0px;
+    margin-top: 0px;
+    font-size: 1.3rem;
+  }
+  .portfolio h2,
+  .contact-details h2,
+  .contact-form-container h3 {
+    font-size: 2.5rem;
+    margin-left: -20px;
+  }
+  .vertical-text-widget-small {
+    position: absolute;
 
-  bottom: -2550px;
-  right: 15px;
-}
+    bottom: -2550px;
+    right: 15px;
+  }
 }
