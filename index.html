@@ -19,15 +19,18 @@
 
     <div class="side-icons-left">
         <img src="public/icon.png" alt="" srcset="" id="icon">
-        <a href="tel:+923020887777"><img src="public/phone.png" alt="" srcset=""></a>
-        <a href="mailto:alisocial233@gmail.com"><img src="public/mail.png" alt="" srcset=""></a>
+        <a class="phone-link" href="tel:+923020887777"><img src="public/phone.png" alt="" srcset=""></a>
+        <a class="mail-link" href="mailto:alisocial233@gmail.com"><img src="public/mail.png" alt="" srcset=""></a>
     </div>
-<!--
-<div class="vertical-text-right">
-        <div class="vertical-text top">delivering perfection</div>
-        <div class="vertical-text bottom">voice your needs</div>
-    </div> -->
-
+    <div class="vertical-text-widget">
+        <p>delivering perfection</p>
+    </div>
+    <div class="vertical-text-widget-2">
+        <p>voice your needs</p>
+    </div>
+    <div class="vertical-text-widget-small">
+        <p>know your contacts</p>
+    </div>
     <div class="container">
         <header class="main-header">
 
@@ -35,7 +38,7 @@
             <nav>
                 <ul>
                     <li><a href="#top">Home</a></li>
-                    <li><a href="#portfolio">About</a></li>
+                    <li><a href="pages/about.html">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -44,10 +47,14 @@
         <main>
             <section class="hero">
                 <div class="hero-content">
-                    <h1>The Creed</h1>
-                    <h2>The Creative Agency</h2>
-                    <p>"We produce videos as captivating and refined as classical <span>Greek</span> art."</p>
-                    <a href="#contact" class="btn">Contact Me</a>
+                    <div class="flex-heading">
+                        <h1>The Creed</h1>
+                        <h2>The Creative Agency</h2>
+                    </div>
+                    <div class="flex-sub">
+                        <p>"We produce videos as captivating and refined as classical <span>Greek</span> art."</p>
+                        <a href="#contact" class="btn">Contact Me</a>
+                    </div>
                 </div>
                 <div class="hero-image">
                     <img src="public/main.png" alt="Statue of Perseus with the Head of Medusa">
@@ -58,70 +65,64 @@
             <section class="portfolio-section" id="portfolio">
                 <div class="container">
 
-                    <!-- Testimonial -->
                     <div class="testimonial">
-                        <!-- REPLACE with your avatar image -->
-                        <img src="public/small.png" alt="GigaChad profile picture">
+                        <div class="image-container">
+                            <img src="public/small.png" alt="GigaChad profile picture">
+                        </div>
                         <div class="testimonial-text">
                             <span class="testimonial-author">GigaChad Says:</span>
                             <p>Asked an edit and got a masterpiece. This guy knows what he's doing!</p>
                         </div>
                     </div>
 
-                    <!-- Downward Chevron -->
                     <a href="#portfolio" class="nav-chevron down">^</a>
 
-                    <!-- Portfolio Content -->
-
-
-                    <!-- Overlapping Image Gallery -->
                     <div class="gallery">
-                        <!-- REPLACE with your side image -->
                         <img src="public/midside.png" alt="Sculpture detail one" class="side-image">
-                        <!-- REPLACE with your main portfolio image -->
                         <img src="public/midmain.png" alt="Main sculpture with red accent" class="main-image">
-                        <!-- REPLACE with your other side image -->
                         <img src="public/midside.png" alt="Sculpture detail two" class="side-image">
                     </div>
-                    <h2>Our Sculpts</h2>
-                    <p class="subtitle">We cater to clients of every scale, always upholding a standard of excellence.
-                    </p>
-                    <!-- Button -->
+                    <div class="flex-portfolio">
+                        <h2>Our Sculpts</h2>
+                        <p class="subtitle">We cater to clients of every scale, always upholding a standard of
+                            excellence.
+                        </p>
+                    </div>
                     <a href="#contact" class="portfolio-btn">Contact Me</a>
 
                 </div>
             </section>
-
-            <!-- <a href="#contact" class="nav-chevron">^</a> -->
-
+            <div class="cee">
+                <img class="logo-down" src="public/icon.png" alt="" srcset="">
+            </div>
             <section class="contact-section">
                 <span id="contact" class="section-anchor"></span>
-                <div class="contact-details">
-                    <h2 >Who Am I <span class="script-font">Contacting?</span></h2>
-                    <p>You are contacting the owner of the agency directly and not some sales representative as we value
-                        communication with our clients.</p>
-                    <div class="contact-methods">
-                        <p><strong>Email</strong> alisocial233@gmail.com</p>
-                        <p><strong>WhatsApp</strong> +(92)3020887777</p>
+                <div class="contact-inner">
+                    <div class="contact-details">
+                        <h2>Who Am I <span class="script-font">Contacting?</span></h2>
+                        <p>You are contacting the owner of the agency directly and not some sales representative as we
+                            value
+                            communication with our clients.</p>
+                        <div class="contact-methods">
+                            <p><strong>Email</strong> alisocial233@gmail.com</p>
+                            <p><strong>WhatsApp</strong> +(92)3020887777</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <h3>Contact Form</h3>
-                    <form action="#" method="post">
-                        <input type="text" name="firstname" placeholder="First Name" required>
-                        <input type="text" name="lastname" placeholder="Last Name" required>
-                        <input type="email" name="email" placeholder="Email" required>
-                        <textarea name="message" rows="4" placeholder="Message (Optional)"></textarea>
-                        <button type="submit" class="btn">Send Form</button>
-                    </form>
+                    <img class="btw-form" src="public/icon.png" alt="">
+                    <div class="contact-form-container">
+                        <h3>Contact Form</h3>
+                        <form action="#" method="post">
+                            <input type="text" name="firstname" placeholder="First Name" required>
+                            <input type="text" name="lastname" placeholder="Last Name" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <textarea name="message" rows="4" placeholder="Message (Optional)"></textarea>
+                            <button type="submit" class="btn">Send Form</button>
+                        </form>
+                    </div>
                 </div>
             </section>
         </main>
 
-        <footer style="text-align: center; padding: 40px 0; font-size: 0.8rem; opacity: 0.5;">
-            <p>© 2024 The Creed Agency. All rights reserved.</p>
-        </footer>
     </div>
 
 </body>

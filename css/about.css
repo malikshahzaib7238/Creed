@@ -1,26 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Viaoda+Libre&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Jim+Nightshade&family=Viaoda+Libre&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Viaoda+Libre&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antic+Didone&family=Jim+Nightshade&family=Viaoda+Libre&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Italiana&family=Lato:wght@300;400&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap");
 
-/* --- CSS VARIABLES --- */
 :root {
   --bg-dark: #140d0d;
   --bg-glow: #371919;
-  --text-gold: #c3b299;
+  --text-gold: #d2ad75;
   --text-light-gold: #e0d5c6;
   --text-white: #ffffff;
 
-  /* The "Raja Ali Sher" font */
   --font-script: "Mea Culpa", cursive;
-  /* The body text font */
+
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Lato", sans-serif;
 }
 
-/* --- GLOBAL STYLES --- */
 * {
   margin: 0;
   padding: 0;
@@ -33,25 +30,17 @@ html {
 
 body {
   background-color: var(--bg-dark);
-  background-image: linear-gradient(to right,
-  var(--bg-dark) 0%,
-  var(--bg-dark) 25%,
-  var(--bg-glow) 50%,
-  var(--bg-glow) 75%,
-  var(--bg-glow) 100%
-);
-  font-family: var(--font-serif);
-  color: var(--text-light-gold);
+  background-image: linear-gradient(to right, #0f0f0f 8%, #371919 100%);
+  font-family: var(--font-body);
+  color: var(--text-gold);
   overflow-x: hidden;
-  position: relative;
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px; /* More padding for side borders */
+  padding: 0 32px;
   position: relative;
-  z-index: 2;
 }
 
 a {
@@ -59,165 +48,186 @@ a {
   text-decoration: none;
 }
 
-/* --- HEADER --- */
 .main-header {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 25px 0;
-    /* position: sticky; */
-    top: 0;
-    background-image: linear-gradient(to right,
-    var(--bg-dark) 0%,
-    var(--bg-dark) 25%,
-    var(--bg-glow) 50%,
-    var(--bg-glow) 75%,
-    var(--bg-glow) 100%
-  );
-    z-index: 100;
-  }
-
-  .main-header .logo a {
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--text-gold);
-  }
-
-  .main-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 40px;
-  }
-
-  .main-header nav a {
-    font-family: 'Jacques Francois', serif;
-    font-size: 16px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    color: var(--text-gold);
-    transition: color 0.3s;
-  }
-  .main-header nav a:hover {
-    color: var(--text-white);
-  }
-
-
-/* --- ABOUT SECTION --- */
-.about-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  gap: 40px;
-  min-height: 90vh;
-  padding: 0% 0;
+  gap: 70px;
+  padding: 45px 5px;
+
+  justify-content: flex-start;
+}
+.main-header .logo a {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-gold);
 }
 
+.main-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.main-header nav a {
+  font-family: "Jacques Francois", serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: var(--text-gold);
+  transition: color 0.3s;
+}
+.main-header nav a:hover {
+  color: var(--text-white);
+}
+.about-section {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  position: relative;
+  padding: 4rem 0;
+}
+
+.about-content {
+  flex-basis: 50%;
+  max-width: 600px;
+  z-index: 2;
+}
 .about-content .heading {
   margin-bottom: 25px;
-  /* font-family: "Viaoda Libre", serif; */
 }
-
 .about-content .heading span {
   font-size: 2.5rem;
   font-style: italic;
   color: var(--text-white);
   display: block;
 }
-
 .about-content .heading h1 {
-    font-family: "Jim Nightshade", cursive;
+  font-family: "Jim Nightshade", cursive;
   font-size: 7rem;
   line-height: 0.8;
-  color: #D2AD75;
+  color: #d2ad75;
   font-weight: 400;
   margin-top: -10px;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
-
 .about-content p {
-    font-family: "Antic Didone", serif;
-color:#dedede;
-  font-size: 1.3rem;
+  font-family: "Antic Didone", serif;
+  color: #dedede;
+  font-size: 1.33em;
   line-height: 1.8;
   margin-bottom: 35px;
 }
-
 .about-content p strong {
   font-weight: 700;
-  /* font-style: italic; */
+  font-size: 1.5rem;
   color: var(--text-gold);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
-
 .btn {
-    display: inline-block;
-    border: 1px solid var(--text-gold);
-    padding: 12px 35px;
-    color: var(--text-gold);
-    /* Use the same elegant serif font */
-    font-family: 'Jacques Francois', serif;
-    font-size: 1.1rem;
-    border-radius: 50px;
-    background: rgba(0,0,0,0.2);
-    transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+  border: 1px solid var(--text-gold);
+  padding: 12px 35px;
+  color: var(--text-gold);
+  font-family: "Jacques Francois", serif;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, color 0.3s;
 }
-
 .btn:hover {
-    background-color: var(--text-gold);
-    color: var(--bg-dark);
+  background-color: var(--text-gold);
+  color: var(--bg-dark);
 }
-
 
 .about-image {
-  position: relative;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  right: 10%;
+  top: 18%;
+  transform: scale(1.4);
+
+  z-index: 1;
 }
 
-/* The statue image itself */
 .about-image img {
-  max-width: 100%;
-  width: 5000px;
+  width: 100%;
+  max-width: 700px;
   height: auto;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(5px 10px 25px rgba(0, 0, 0, 0.5));
+
+  filter: drop-shadow(0px 3.76px 5.2px #000);
 }
 
-/* The golden ellipse/halo */
+@media (max-width: 900px) {
+  .about-section {
+    position: relative;
+    padding: 3rem 0;
+    margin-left: -30px;
+  }
+  * {
+    padding: 0 1px;
+  }
 
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+  }
+  .about-image {
+    position: absolute;
+    right: 19%;
+    top: 55%;
+    transform: scale(1.15);
 
-/* --- QUOTE SECTION --- */
+    z-index: 1;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0px 3.76px 5.2px #000);
+  }
+}
 .quote-section {
-  margin-top: 40px;
-  padding-top: 0px;
-  border-top: 1px solid rgba(195, 178, 153, 0.3);
   display: flex;
   align-items: center;
   gap: 25px;
+
+  margin-top: 2rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid #d2ad75;
 }
 
 .quote-icons {
   display: flex;
   gap: 15px;
+  transform: scale(0.7);
 }
 
 .quote-icons svg {
   width: 24px;
   height: 24px;
-  fill: var(--text-gold);
-  opacity: 0.7;
+  stroke: var(--text-gold);
+  fill: none;
+  opacity: 0.8;
+  transform: scale(0.7);
+}
+
+.quote-text {
+  font-family: var(--font-serif);
 }
 
 .quote-text p {
-  /* font-style: italic; */
   font-size: 1rem;
-  margin: 0;
+  margin: 0 0 5px 0;
   line-height: 1.5;
+
+  color: var(--text-light-gold);
 }
 
 .quote-text span {
@@ -225,56 +235,117 @@ color:#dedede;
   text-align: right;
   color: var(--text-gold);
   font-weight: 700;
-  margin-top: 5px;
+  font-style: normal;
 }
 
-/* --- SIDE DECORATIONS --- */
-.vertical-border {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  /* Creates a dashed line effect */
-  background-image: linear-gradient(var(--text-gold) 40%, transparent 0%);
-  background-size: 1px 8px;
-  background-repeat: repeat-y;
-  opacity: 0.3;
-  z-index: 1;
-}
-.vertical-border.left {
-  left: 30px;
-}
-.vertical-border.right {
-  right: 30px;
+.vertical-text-widget {
+  position: absolute;
+
+  bottom: 600px;
+  right: -40px;
+
+  transform: rotate(-90deg);
+
+  transform-origin: bottom right;
+
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  color: #d2ad75;
+  font-family: serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
-.vertical-text-owner {
-  position: fixed;
-  right: 35px;
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  transform-origin: right center;
-  color: var(--text-gold);
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: 300;
-  opacity: 0.7;
-}
-.vertical-text-owner::after {
+.vertical-text-widget::before {
   content: "";
-  display: inline-block;
-  width: 40px;
-  height: 1px;
-  background: var(--text-gold);
-  margin-left: 10px;
-  vertical-align: middle;
+  display: block;
+  background-color: #d2ad75;
+  height: 2px;
+  width: 50px;
 }
 
-/* --- RESPONSIVE DESIGN --- */
+.vertical-text-widget::after {
+  content: "";
+  display: block;
+  background-color: #d2ad75;
+  height: 2px;
+  width: 50px;
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    margin-bottom: 30px;
+  }
+  .main-header nav a {
+    display: none;
+  }
+  * {
+    padding: 0 1px;
+  }
+
+  .about-content .heading {
+    margin-bottom: 25px;
+  }
+
+  .about-content .heading span {
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--text-white);
+    display: block;
+  }
+
+  .about-content .heading h1 {
+    font-family: "Jim Nightshade", cursive;
+    font-size: 7rem;
+    line-height: 0.8;
+    color: #d2ad75;
+    font-weight: 400;
+    margin-top: -10px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .about-content p {
+    font-family: "Antic Didone", serif;
+    color: #dedede;
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 35px;
+  }
+
+  .about-content p strong {
+    font-weight: 700;
+    font-size: 1.3rem;
+
+    color: var(--text-gold);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .btn {
+    display: inline-block;
+    border: 1px solid var(--text-gold);
+    padding: 12px 35px;
+    color: var(--text-gold);
+
+    font-family: "Jacques Francois", serif;
+    font-size: 1rem;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .quote-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10px;
+  }
+}
 @media (max-width: 992px) {
   .about-section {
-    grid-template-columns: 1fr;
-    text-align: center;
+    flex-direction: column-reverse;
   }
   .about-image {
     order: 1;
@@ -291,16 +362,16 @@ color:#dedede;
     text-align: center;
   }
 }
+
 @media (max-width: 768px) {
   .container {
-    padding: 0 20px;
   }
   .vertical-border,
   .vertical-text-owner {
     display: none;
   }
   .about-content .heading h1 {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
   .about-content .heading span {
     font-size: 2rem;
@@ -308,5 +379,56 @@ color:#dedede;
   .main-header {
     flex-direction: column;
     gap: 15px;
+  }
+}
+@media (max-width: 900px) {
+  .quote-section {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-direction: row;
+
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+    border-top: 2px solid #d2ad75;
+  }
+
+  .quote-icons {
+    margin-top: -20px;
+  }
+  .vertical-text-widget {
+    position: absolute;
+
+    bottom: 250px;
+    right: 0px;
+
+    transform: rotate(-90deg);
+
+    transform-origin: bottom right;
+
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    color: #d2ad75;
+    font-family: serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .vertical-text-widget::before {
+    content: "";
+    display: block;
+    background-color: #d2ad75;
+    height: 2px;
+    width: 50px;
+  }
+
+  .vertical-text-widget::after {
+    content: "";
+    display: block;
+    background-color: #d2ad75;
+    height: 2px;
+    width: 50px;
   }
 }
