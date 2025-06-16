@@ -47,7 +47,7 @@ a {
   display: flex;
   align-items: center;
   gap: 70px;
-  padding: 45px 5px;
+  padding: 45px 10px;
   justify-content: flex-start;
 }
 
@@ -83,7 +83,6 @@ a {
     display: none;
   }
 }
-
 
 .hero {
   position: flex;
@@ -135,7 +134,7 @@ a {
   color: #dedede;
   letter-spacing: -0.62px;
   text-shadow: -4.31px 11.41px 7.18px #000000;
-  word-spacing:25px;
+  word-spacing: 25px;
 }
 
 .hero-content p span {
@@ -149,7 +148,7 @@ a {
   padding: 12px 35px;
   color: var(--text-gold);
   font-family: "Jacques Francois", serif;
-  font-size: 1.35rem;
+  font-size: 23px;
   border-radius: 50px;
   background: rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s, color 0.3s;
@@ -174,12 +173,11 @@ a {
 }
 .hero-image img {
   position: absolute;
-  width: 1000px;
+  width: 90.81%;
   height: auto;
-  /* height:595px; */
-  transform:scale(1.5);
-  top: -92px;
-    left: -50px;
+  transform: scale(1.5);
+  top: -12.76%;
+  left: -5%;
   filter: drop-shadow(5px 10px 20px rgba(0, 0, 0, 0.5));
 }
 
@@ -194,7 +192,7 @@ a {
   position: relative;
   z-index: 50;
   text-align: center;
-  text-shadow: 0px -5px 69.2px #FFC56D;
+  text-shadow: 0px -5px 69.2px #ffc56d;
 }
 
 @media (max-width: 900px) {
@@ -319,19 +317,8 @@ a {
   visibility: hidden;
 }
 
-.nav-chevron {
-  text-align: center;
-  font-size: 2rem;
-  color: var(--text-gold);
-  margin: 40px 0;
-  font-weight: 300;
-}
-.nav-chevron.down {
-  transform: rotate(180deg);
-}
-
 .portfolio-section {
-  margin-top: 8vh;
+  margin-top: -1%;
   text-align: center;
   position: absolute;
   z-index: 1000;
@@ -380,16 +367,6 @@ a {
   max-width: 470px;
 }
 
-.nav-chevron {
-  position: relative;
-
-  display: inline-block;
-  color: #d2ad75;
-  font-size: 4.5rem;
-  font-weight: 50;
-  font-style: normal;
-  text-decoration: none;
-}
 @media (max-width: 900px) {
   .portfolio-section {
     margin-top: 22vh;
@@ -444,13 +421,6 @@ a {
     max-width: 450px;
   }
 }
-.nav-chevron.down {
-  margin-top: 96px;
-  z-index: 200;
-  justify-content: center;
-  align-items: center;
-  transform: rotate(180deg);
-}
 
 @media (max-width: 900px) {
   .nav-chevron.down {
@@ -460,6 +430,17 @@ a {
     align-items: center;
     transform: rotate(180deg);
   }
+}
+.nav-chevron {
+  position: relative;
+  display: flex;
+  font-size: 4em;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-gold);
+  margin: -0.2% auto;
+  font-weight: 1;
+  margin-bottom: -1%;
 }
 
 .portfolio-section {
@@ -471,11 +452,18 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: -2.5%;
+  gap: -30px;
+}
+
+.flex-portfolio img {
+  margin-top: -9%;
+  z-index: 10000;
 }
 
 .portfolio-section h2 {
   font-family: "Jim Nightshade", cursive;
-  font-size: 6rem;
+  font-size: 111px;
   font-weight: 400;
   margin-top: -198px;
   justify-content: center;
@@ -493,14 +481,14 @@ a {
 
 .portfolio-section .subtitle {
   font-family: var(--font-span);
-  font-size: 1.5rem;
+  font-size: 29px;
   justify-content: center;
   align-items: center;
   position: relative;
   color: #dedede;
 
-  margin-top: -32px;
-  max-width: 550px;
+  margin-top: -40px;
+  width: 660px;
   text-shadow: -3px 8px 10px #000000;
 }
 
@@ -518,19 +506,20 @@ a {
   justify-content: center;
   align-items: center;
   margin-bottom: 60px;
-  margin-top: 70px;
+  margin-top: 65px;
   gap: 75px;
 }
 .gallery img {
-  height: 230px;
-  width: auto;
+  height: auto;
+  width: 30%;
 }
 
 .gallery .main-image {
-  transform: scale(1.3);
-  position: relative;
-  z-index: 0;
-  margin-bottom: 65px;
+  width: 32%;
+  transform: scale(1.1);
+  /* position: relative; */
+  /* z-index: 0; */
+  margin-bottom: 5.1%;
 }
 
 @media (max-width: 900px) {
@@ -550,11 +539,11 @@ a {
 }
 
 .gallery .side-image:first-of-type {
-  margin-right: -10px;
+  /* margin-right: -10px; */
 }
 
 .gallery .side-image:last-of-type {
-  margin-left: -10px;
+  /* margin-left: -10px; */
 }
 
 .portfolio-btn {
@@ -564,7 +553,7 @@ a {
   color: var(--text-gold);
 
   font-family: "Jacques Francois", serif;
-  font-size: 1.35rem;
+  font-size: 1.37rem;
 
   font-family: "Jacques Francois", serif;
   font-weight: 400;
@@ -575,7 +564,7 @@ a {
   border-radius: 3px;
   padding: 15px 40px;
   border: none;
-  margin-top: 50px;
+  margin-top: 3.4%;
   box-shadow: 2.2941176891326904px 6.882352828979492px 4.588235378265381px
     4.588235378265381px rgba(0, 0, 0, 25%);
 }
@@ -585,6 +574,7 @@ a {
 }
 
 .cee {
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -600,19 +590,18 @@ a {
 .contact-inner {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: normal;
   gap: 200px;
 
-  margin: 0 auto;
-
-  max-width: 1400px;
+  margin: 3% 7%;
+  /* width: 1920px; */
 }
-
-.contact-form-container {
-  padding: 40px 50px;
-  border-radius: 8px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-  max-width: 500px;
+.whoami {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
@@ -635,7 +624,7 @@ a {
 }
 .contact-details h2 {
   color: transparent;
-
+  font-size: 63px;
   text-shadow: -4px 8px 40px #000000, 13px 11px 0px #d2ad75;
 }
 .script-font {
@@ -645,7 +634,7 @@ a {
   font-family: "Jim Nightshade", cursive;
   text-shadow: -4px 8px 40px #000000, 13px 11px 0px #d2ad75;
   text-align: center;
-  font-size: 4.5rem;
+  font-size: 110px;
 
   display: block;
 
@@ -658,12 +647,16 @@ a {
   font-family: var(--font-span);
 
   color: #dedede;
+  margin-top: 50px;
   word-spacing: 6px;
   margin-bottom: 40px;
-  max-width: 470px;
-  font-size: 1.5rem;
-  letter-spacing: -0.5px;
+  /* max-width: 470px; */
+  width: 720px;
+  font-size: 34.4px;
+  /* letter-spacing: -0.5px; */
+  line-height: 40.4px;
   text-align: center;
+  word-spacing: 25px;
 }
 
 .contact-methods p {
@@ -671,76 +664,117 @@ a {
   margin-bottom: 25px;
   text-align: center;
   color: #dedede;
-
-  font-size: 1.3rem;
+  font-weight: 100;
+  font-size: 1.35rem;
+  letter-spacing: -0.51px;
 }
 
-.contact-methods strong {
+.contact-methods span {
   font-family: "SF Pro", serif;
-  font-size: 1.3rem;
+  font-size: 28px;
   color: #d2ad75;
   display: block;
+  line-height: 150%;
   margin-bottom: 8px;
   font-weight: 400;
   letter-spacing: 1px;
 }
 
-.contact-form-container h3 {
-  font-family: var(--font-heading-main);
-  font-size: 3rem;
-
-  text-align: center;
-  margin-bottom: 30px;
-  color: #dddddd;
-  line-height: 1;
+.contact-methods span a {
+  filter:  /* Small blur for crispness */ drop-shadow(
+    0 0 1px #d2ad75
+  ); /* Second layer for more thickness */
+}
+/* Container: Made responsive, removed fixed height, and centered on the page. */
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 130px;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  width: 600px; /* Reduced width for a more standard form look */
+  height: 700px;
+  /* width: 90%;      Added for responsiveness */
+  /* height: auto;     Removed fixed height to allow content to define it */
+  margin: 0 auto; /* Centers the form container on the page */
+  box-sizing: border-box;
 }
 
+/* Heading: Reduced font size for better visual balance. */
+.contact-form-container h3 {
+  font-family: var(--font-heading-main);
+  font-size: 3.5rem; /* Reduced from 75px to match the target image */
+  text-align: center;
+  margin-bottom: 40px;
+  color: #dddddd;
+  line-height: 1;
+  font-weight: 400;
+}
+
+/* Inputs & Textarea: Set width to 100% for alignment and removed element opacity. */
 .contact-form-container input,
 .contact-form-container textarea {
-  opacity: 50%;
-  width: 100%;
+  width: 100%; /* Ensures all fields align by taking the full container width */
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--text-gold);
   padding: 15px 0 10px 0;
-  margin-bottom: 25px;
-  color: #d2ad75;
-  font-size: 1.1rem;
+  margin-bottom: 35px; /* Adjusted for consistent spacing */
+  color: #d2ad75; /* Color for the text the user types in */
+  font-size: 1.2rem;
+
   font-family: var(--font-span);
   outline: none;
-  box-sizing: border-box;
+  opacity: 50%;
+  /* opacity: 0.5; */
+  box-sizing: border-box; /* Ensures padding doesn't affect the width */
 }
 
+/* Placeholder: Styled separately for better control over appearance. */
 .contact-form-container input::placeholder,
 .contact-form-container textarea::placeholder {
-  color: var(--text-placeholder-color);
-  font-family: var(--font-span);
+  color: #d2ad75;
+  /* opacity: ; */
+  /* opacity: 0.5; Makes placeholder text distinct from user input */
+  font-family: "Jacques Francois", serif;
+  margin-bottom: -10px;
 }
 
+/* Textarea: Adjusted bottom margin for spacing. */
 .contact-form-container textarea {
   resize: vertical;
   min-height: 80px;
+  margin-bottom: 40px; /* More space before the submit button */
 }
 
+/* Button: Fixed width, removed margin-left, added a border, and fixed box-shadow. */
 .contact-form-container .btn {
-  width: 70%;
+  width: 75%; /* Matched width to the input fields */
   text-align: center;
+  position: relative;
+  display: flex;
   padding: 15px 25px;
-
-  margin-left: 50px;
+  /* margin-left: 50px; <-- This was removed as it broke the centering */
   background-color: transparent;
-
-  border: none;
+  /* border: 1px solid var(--text-gold); Added a border to match the target image */
   color: var(--text-gold);
   font-family: "Jacques Francois", serif;
   font-size: 1.35rem;
   font-weight: 400;
   border-radius: 3px;
   cursor: pointer;
+  border: none;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 4px 6px 12px 0px rgba(0, 0, 0, 0.4);
-  margin-top: 20px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+  /* Consolidated the two box-shadow rules into one */
+  box-shadow: 2.4203152656555176px 7.260945796966553px 4.840630531311035px
+    4.840630531311035px rgba(0, 0, 0, 25%);
+  margin: 3% auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .contact-form-container .btn:hover {
@@ -753,36 +787,26 @@ a {
   box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.3);
   transform: translateY(1px);
 }
-.nav-chevron {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  color: var(--text-gold);
-  text-decoration: none;
-}
 
 #icon {
   font-size: 2rem;
   font-weight: 300;
   color: var(--text-gold);
-  margin-bottom: 700px;
+  margin-bottom: 1200%;
 }
 
 .side-icons-left {
   position: absolute;
-  left: 20px;
+  left: 2%;
   top: 105%;
-
   font-size: 2rem;
   font-weight: 300;
   color: var(--text-gold);
   transform: translateY(-50%);
-  transform: scale(0.75);
+  transform: scale(0.9);
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 40px;
   z-index: 10;
 }
 
@@ -862,7 +886,7 @@ body {
 .vertical-text-widget-2 {
   position: absolute;
 
-  bottom: -1200px;
+  bottom: -1650px;
   right: 15px;
 
   transform: rotate(-90deg);
@@ -875,7 +899,7 @@ body {
 
   color: #d2ad75;
   font-family: serif;
-  font-size: 1rem;
+  font-size: 23px;
   letter-spacing: 1px;
 }
 
@@ -884,12 +908,12 @@ body {
   display: block;
   background-color: #d2ad75;
   height: 2px;
-  width: 50px;
+  width: 55px;
 }
 .vertical-text-widget {
   position: absolute;
 
-  bottom: -600px;
+  bottom: -520px;
   right: 15px;
 
   transform: rotate(-90deg);
@@ -902,7 +926,7 @@ body {
 
   color: #d2ad75;
   font-family: serif;
-  font-size: 1rem;
+  font-size: 23px;
   letter-spacing: 1px;
 }
 
@@ -911,7 +935,7 @@ body {
   display: block;
   background-color: #d2ad75;
   height: 2px;
-  width: 50px;
+  width: 55px;
 }
 
 .vertical-text-widget::after {
@@ -919,7 +943,7 @@ body {
   display: block;
   background-color: #d2ad75;
   height: 2px;
-  width: 50px;
+  width: 55px;
 }
 
 .vertical-text-widget-small {
