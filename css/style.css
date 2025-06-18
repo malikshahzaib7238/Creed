@@ -127,17 +127,21 @@ a {
 .hero-content p {
   font-family: var(--font-span);
   font-size: 1.8rem;
-  line-height: 1.6;
+  /* line-height: 1.6; */
   margin-top: -12px;
   margin-bottom: 40px;
-  min-width: 580px;
+  width: 680px;
   color: #dedede;
-  letter-spacing: -0.62px;
+  /* letter-spacing: -0.62px; */
   text-shadow: -4.31px 11.41px 7.18px #000000;
-  word-spacing: 25px;
+  /* word-spacing: 25px; */
 }
 
-.hero-content p span {
+
+#bl{
+  display: block;
+}
+#greek {
   color: #d2ad75;
   font-weight: 700;
 }
@@ -185,10 +189,10 @@ a {
   font-family: "Viaoda Libre", serif;
   font-weight: 400;
   letter-spacing: -2%;
-  font-size: 61px;
+  font-size: 73px;
   color: #d2ad75;
-  margin-top: 620px;
-  margin-left: -180px;
+  margin-top: 625px;
+  margin-left: -55px;
   position: relative;
   z-index: 50;
   text-align: center;
@@ -807,7 +811,11 @@ a {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  z-index: 10;
+  z-index: 1000000;
+}
+.side-icons-left a {
+  z-index: 1000000;
+  pointer-events: auto; /* Re-enables clicks for the links */
 }
 
 .btw-form {
