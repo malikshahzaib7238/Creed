@@ -49,12 +49,7 @@ function setupGallerySlider() {
       titleImage: "public/text_center.png",
       subtitleText:
         "Our second sculpture explores the theme of heroic triumph.",
-    },
-    {
-      mainImage: "public/right.png",
-      titleImage: "public/text_center.png",
-      subtitleText: "This piece captures a moment of quiet contemplation.",
-    },
+    }
   ];
 
   const gallery = document.querySelector(".gallery");

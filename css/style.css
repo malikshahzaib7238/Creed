@@ -630,8 +630,11 @@ a {
     transform: none;
     width: 150%;
     z-index: -2;
+
     max-width: 720px;
-    margin: -100px 50px 0 0;
+    margin: -100px 75px 0 0;
+    filter: brightness(0.8);
+
   }
 
   .hero-image h3 {
