@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import App from "./App";
+import App from "./pages/App";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AboutPage from "./About";
+import AboutPage from "./pages/About";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -15,7 +15,7 @@ const Router = () => {
       path: "/about",
       element: <AboutPage />
     }
-    
+
   ]);
 
   return <RouterProvider router={router} />;

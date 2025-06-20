@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
-import './index.css';
+import '../styles/index.css';
 import { motion } from 'framer-motion'; // Import motion
 
-import SideWidgets from './components/SideWidgets';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
+import SideWidgets from '../components/SideWidgets';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
 import { useLocation } from 'react-router-dom';
-import PortfolioSection from './components/PortfolioSection';
-import ContactSection from './components/ContactSection';
-import MobileNavbar from './components/MobileNavbar';
+import PortfolioSection from '../components/PortfolioSection';
+import ContactSection from '../components/ContactSection';
+import MobileNavbar from '../components/MobileNavbar';
+import ParticlesBackground from '../components/ParticlesBackground';
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -56,6 +57,7 @@ const HomePage = () => {
     variants={pageVariants}
     transition={pageTransition}
   >
+    <ParticlesBackground/>
     <div id="top">
       <SideWidgets />
       <div className="container">

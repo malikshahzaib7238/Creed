@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./About.css";
+import "../styles/About.css";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import Header from "./components/Header";
-import MobileNavbar from "./components/MobileNavbar";
-
+import Header from "../components/Header";
+import MobileNavbar from "../components/MobileNavbar";
+import ParticlesBackground from "../components/ParticlesBackground";
 const navLinks = [
   { label: "Home", path: "/#top" },
   { label: "About", path: "/about" },
@@ -84,6 +84,7 @@ const AboutPage = () => {
       variants={pageVariants}
       transition={pageTransition}
     >
+        <ParticlesBackground/>
       <div className="container">
         <Header navLinks={navLinks} />
         <div className="vertical-text-widget">
