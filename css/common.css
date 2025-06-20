@@ -1,97 +1,104 @@
-/* ====================================================== */
-/* == STYLES FOR ANIMATED MOBILE NAVIGATION BAR          == */
-/* ====================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* --- GLOBAL RESET: Ensure predictable box model --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
+:root {
+  --nav-bg: #2a1a1a;
+  --nav-glow: hsla(38, 100%, 70%, 0.5);
+  --icon-active: hsl(45, 100%, 75%);
+  --icon-inactive: #e0e0e0;
+  --indicator-color: hsl(45, 100%, 65%);
+}
 
-  /* --- CSS Variables for Easy Customization --- */
-  :root {
-      --nav-bg: #2a1a1a;
-      --nav-glow: hsla(38, 100%, 70%, 0.5);
-      --icon-active: hsl(45, 100%, 75%);
-      --icon-inactive: #e0e0e0;
-      --indicator-color: hsl(45, 100%, 65%);
-  }
+.mobile-nav-bar {
+  display: none;
+  position: relative;
+  align-items: center;
 
-  /* --- Main Navigation Bar: HIDDEN BY DEFAULT (for desktop) --- */
+  padding: 0px 15px;
+  background-image: linear-gradient(to right, #0f0f0f 8%, #371919 100%);
+  border-radius: 50px;
+  box-shadow: 0 0 25px 8px hsla(38, 100%, 70%, 0.35);
+
+  overflow-x: hidden;
+}
+
+.nav-button {
+  position: relative;
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 18px;
+  border-radius: 50px;
+  outline: none;
+  display: block;
+  text-decoration: none;
+}
+
+.nav-button svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 1.5;
+  stroke: var(--icon-inactive);
+  transition: stroke 0.3s ease;
+  display: block;
+}
+
+.nav-button.active svg {
+  stroke: #d2ad75;
+}
+
+#nav-indicator {
+  position: absolute;
+  height: 50%;
+  width: 68px;
+  top: 0;
+  left: 10px;
+  z-index: 1;
+  transition: left 0.4s cubic-bezier(0.6, 0, 0.4, 1);
+
+  background: linear-gradient(
+    to bottom,
+    hsla(45, 100%, 75%, 0.7) 0%,
+    transparent 75%
+  );
+
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+}
+
+#nav-indicator::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 60%;
+  height: 3px;
+
+  background-color: #d2ad75;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
   .mobile-nav-bar {
-      display: none; /* Hidden on desktop by default */
-      position: relative; /* Changed from absolute to relative for internal positioning */
-      align-items: center;
+    display: flex;
+    position: fixed;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: max-content;
 
-      padding: 0px;
-      background-image: linear-gradient(to right, #0f0f0f 8%, #371919 100%);
-      border-radius: 50px;
-      box-shadow: 0 0 25px 8px hsla(38, 100%, 70%, 0.35);
-      /* Adding overflow-x hidden just in case, though the transform fix should handle most cases */
-      overflow-x: hidden;
+    justify-content: space-around;
+    margin-bottom: 70px;
   }
+}
 
-  /* --- Navigation Buttons --- */
-  .nav-button {
-      position: relative;
-      z-index: 10;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px 18px;
-      border-radius: 50px;
-      outline: none;
-      display: block; /* Important for <a> tags if used instead of <button> */
-      text-decoration: none; /* Important for <a> tags */
-  }
-
-  /* --- Icon Styling --- */
-  .nav-button svg {
-      width: 28px;
-      height: 28px;
-      stroke-width: 1.5;
-      stroke: var(--icon-inactive);
-      transition: stroke 0.3s ease;
-      display: block; /* Fixes potential spacing issues with icons inside links */
-  }
-
-  /* --- Active State Icon --- */
-  .nav-button.active svg {
-      stroke: #d2ad75;
-  }
-
-  /* --- The Moving Indicator --- */
-  .nav-indicator {
-      position: absolute;
-      height: 100%;
-      width: 68px; /* Adjusted to fit content (20+20 padding + 28 icon) */
-      top: 0;
-      left: 10px; /* Initial position for the indicator */
-      z-index: 1;
-      transition: left 0.4s cubic-bezier(0.6, 0, 0.4, 1);
-      background: radial-gradient(
-          ellipse at 50% -20%,
-          hsla(45, 100%, 75%, 0.8) 0%,
-          transparent 60%
-      );
-  }
-
-  /* --- MOBILE-ONLY STYLES: Show and stick the nav bar to the bottom --- */
-  @media (max-width: 768px) {
-      .mobile-nav-bar {
-          display: flex; /* Make it visible on mobile */
-          position: fixed; /* Changed to fixed for constant visibility regardless of scrolling */
-          bottom: -45px; /* Distance from the bottom of the viewport */
-          left: 50%;
-          transform: translateX(-50%); /* UNCOMMENTED: This is crucial for centering and removing horizontal scrollbar */
-          z-index: 1000; /* Ensure it's on top of other content */
-          width: max-content; /* Allows the bar to shrink/grow based on content */
-          /* Adding padding to body to prevent content from being hidden by the fixed nav bar */
-          justify-content: space-around;
-          margin-bottom: 70px; /* Adjust based on your nav bar's height + bottom offset */
-      }
-  }
-
-  /* Adding a general overflow-x hidden for the body as a safeguard */
-  body {
-      overflow-x: hidden;
-  }
+body {
+  overflow-x: hidden;
+}

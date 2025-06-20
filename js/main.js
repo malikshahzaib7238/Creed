@@ -1,17 +1,9 @@
-// ===================================================================
-// == THE CREED - MAIN JAVASCRIPT FILE
-// ===================================================================
-
 document.addEventListener("DOMContentLoaded", () => {
-  // We will organize our code into functions for clarity.
   setupCustomCursor();
   setupGallerySlider();
-  setupMobileNavbar(); // The new, smart navbar logic
+  setupMobileNavbar();
 });
 
-// -------------------------------------------------------------------
-// --- 1. CUSTOM CURSOR LOGIC
-// -------------------------------------------------------------------
 function setupCustomCursor() {
   const cursorDot = document.querySelector(".cursor-dot");
   const cursorOutline = document.querySelector(".cursor-outline");
@@ -44,9 +36,6 @@ function setupCustomCursor() {
   });
 }
 
-// -------------------------------------------------------------------
-// --- 2. GALLERY SLIDER LOGIC
-// -------------------------------------------------------------------
 function setupGallerySlider() {
   const slides = [
     {
@@ -69,7 +58,7 @@ function setupGallerySlider() {
   ];
 
   const gallery = document.querySelector(".gallery");
-  if (!gallery) return; // Exit if the gallery doesn't exist on this page
+  if (!gallery) return;
 
   const leftArrow = gallery.querySelector(".left");
   const rightArrow = gallery.querySelector(".right");
@@ -118,14 +107,13 @@ function setupGallerySlider() {
 
 function setupMobileNavbar() {
   const navBar = document.querySelector(".mobile-nav-bar");
-  if (!navBar) return; // Exit if the navbar doesn't exist on this page
+  if (!navBar) return;
 
   const navButtons = navBar.querySelectorAll(".nav-button");
   const indicator = document.getElementById("nav-indicator");
 
   if (navButtons.length === 0 || !indicator) return;
 
-  // --- Function to move the light indicator to a button ---
   function moveIndicatorTo(button) {
     if (!button) return;
     setTimeout(() => {
@@ -139,29 +127,23 @@ function setupMobileNavbar() {
           indicator.offsetWidth / 2;
         indicator.style.left = `${offset}px`;
       }
-    }, 100); // A small delay ensures the browser has rendered everything
+    }, 100);
   }
 
-  // --- The "Brain": This function now understands URL hashes correctly ---
   function updateActiveState() {
     const currentPath = window.location.pathname;
-    const currentHash = window.location.hash; // Gets the # part, e.g., "#contact"
+    const currentHash = window.location.hash;
 
     let activeButton = null;
 
-    // Remove active class from all buttons to reset
     navButtons.forEach((btn) => btn.classList.remove("active"));
 
-    // --- PRIORITY 1: Check if the URL has a hash (#contact, #portfolio, etc.) ---
     if (currentHash) {
-      // Find a button whose href ENDS WITH the current hash.
-      // This works for both href="#contact" and href="../index.html#contact"
       activeButton = navBar.querySelector(
         `a.nav-button[href$="${currentHash}"]`
       );
     }
 
-    // --- PRIORITY 2: If no hash, check the page filename (e.g., about.html) ---
     if (!activeButton) {
       const currentFile = currentPath.split("/").pop();
       if (currentFile && currentFile !== "index.html" && currentFile !== "") {
@@ -173,30 +155,24 @@ function setupMobileNavbar() {
       }
     }
 
-    // --- PRIORITY 3: If still no match, it must be the homepage ---
     if (!activeButton) {
       activeButton = navBar.querySelector('a.nav-button[href$="#top"]');
     }
 
-    // If we found a matching button, activate it!
     if (activeButton) {
       activeButton.classList.add("active");
       moveIndicatorTo(activeButton);
     }
   }
 
-  // --- Initialize everything ---
-  updateActiveState(); // Run the brain function on page load
+  updateActiveState();
 
   navButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-      // Instantly move the indicator on click for better user feedback
       moveIndicatorTo(e.currentTarget);
     });
   });
 
-  // Re-run the brain function when user navigates with back/forward buttons
   window.addEventListener("pageshow", updateActiveState);
-  window.addEventListener('hashchange', updateActiveState);
-
+  window.addEventListener("hashchange", updateActiveState);
 }

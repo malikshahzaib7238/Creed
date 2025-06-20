@@ -4,7 +4,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Italiana&family=Lato:wght@300;400&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap);
-@import url(./cursor.css);
 @import url(./common.css);
 .hero,
 .main-header {
@@ -640,7 +639,6 @@ a {
     margin: -40px -30px 0 0;
     max-width: 310px;
     text-shadow: 0 -5px 69.2px #ffc56d;
-
   }
 
   /* --- Portfolio Section --- */

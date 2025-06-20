@@ -257,16 +257,17 @@ a {
   .about-image {
     position: relative;
     grid-area: 1/1;
-    width: 98%;
+    width: 96%;
     align-self: center;
 
     justify-content: center;
   }
   .about-image img {
-    /* transform: translateY(120px); */
+    transform: translateY(-10px);
     overflow-x: hidden;
     position: relative;
-    max-width: 450px;
+    /* transform: scale(1.1); */
+    max-width: 100%;
   }
   .quote-section {
     width: 100%;
@@ -288,6 +289,7 @@ a {
   }
   .vertical-text-widget {
     bottom: 200px;
+
     font-size: 11px;
   }
   .vertical-text-widget::after,
