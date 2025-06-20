@@ -37,6 +37,7 @@ body {
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
+
 }
 a {
   color: var(--text-light-gold);
@@ -79,6 +80,7 @@ a {
   flex-basis: 50%;
   width: 1500px;
   z-index: 2;
+
 }
 .about-content .heading {
   margin-bottom: 25px;
@@ -228,6 +230,7 @@ a {
     text-align: left;
     grid-area: 1/1;
     padding-bottom: 50px;
+
   }
   .about-content .heading span {
     margin-left: auto; /* This centers the block */
@@ -261,6 +264,8 @@ a {
     align-self: center;
 
     justify-content: center;
+
+
   }
   .about-image img {
     transform: translateY(-10px);
@@ -270,6 +275,7 @@ a {
     max-width: 100%;
     filter: drop-shadow(0px 3.76px 5.2px rgba(0, 0, 0, 0.25));
   filter: brightness(0.75);
+  margin-bottom: 50px;;
   }
 
   .quote-section {
