@@ -4,7 +4,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Italiana&family=Lato:wght@300;400&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap);
-@import url(./common.css);
+@import url(./styles/common.css);
 .hero,
 .main-header {
   display: flex;
@@ -150,8 +150,9 @@ a {
 }
 .hero-image {
   position: relative;
-  overflow: visible;
-  width: 100%;
+/* z-index: 99; */
+  /* overflow: visible; */
+  width: 99%;
 }
 .hero-image img {
   position: absolute;
@@ -160,20 +161,22 @@ a {
   transform: scale(1.5);
   top: -12.76%;
   left: -5%;
+  /* z-index: 100; */
   filter: drop-shadow(5px 10px 20px rgba(0, 0, 0, 0.5));
 }
+/* --- NEW AND FIXED CODE --- */
+/* --- OLD CODE --- */
 .hero-image h3 {
+  text-shadow: 0 -5px 69.2px #ffc56d;
   font-family: "Viaoda Libre", serif;
   font-weight: 400;
-  letter-spacing: -2%;
   font-size: 73px;
   color: #d2ad75;
-  margin-top: 625px;
+  margin-top: 650px;
   margin-left: -55px;
   position: relative;
-  z-index: 50;
+  z-index: 0;
   text-align: center;
-  text-shadow: 0 -5px 69.2px #ffc56d;
 }
 .section-anchor {
   display: block;
