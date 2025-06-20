@@ -23,8 +23,7 @@
 * {
   margin: 0;
   padding: 0;
-    box-sizing: border-box;
-
+  box-sizing: border-box;
 }
 body {
   background-color: var(--bg-dark);
@@ -210,7 +209,7 @@ a {
   }
   .main-header {
     justify-content: center;
-    gap:0px;
+    gap: 0px;
     padding: 50px 10px 25px;
   }
   .about-section {
@@ -258,13 +257,14 @@ a {
   .about-image {
     position: relative;
     grid-area: 1/1;
-    width: 100%;
-    /* align-self: end; */
+    width: 98%;
+    align-self: center;
 
     justify-content: center;
   }
   .about-image img {
-    transform: translateY(120px);
+    /* transform: translateY(120px); */
+    overflow-x: hidden;
     position: relative;
     max-width: 450px;
   }

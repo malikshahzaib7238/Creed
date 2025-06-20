@@ -1,0 +1,51 @@
+/* ====================================================== */
+/* == STYLES FOR THEMED CUSTOM CURSOR                  == */
+/* ====================================================== */
+
+/* 1. Hide the default system cursor */
+* {
+    cursor: none;
+}
+
+/* 2. Style the inner dot of our cursor */
+.cursor-dot {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--text-gold); /* Uses your existing gold color */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: 9999;
+    transition: transform 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+/* 3. Style the outer ring of our cursor */
+.cursor-outline {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--text-gold);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* 4. Define the "active" state when hovering over interactive elements */
+/* This class will be added by JavaScript */
+
+.cursor-outline.active {
+    transform: translate(-50%, -50%) scale(1.5);
+    /* Add a subtle glow matching the theme */
+    box-shadow: 0 0 15px hsla(38, 56%, 64%, 0.5);
+}
+
+.cursor-dot.active {
+    transform: translate(-50%, -50%) scale(1.2);
+}

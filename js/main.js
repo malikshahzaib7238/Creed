@@ -1,9 +1,53 @@
-// Wait for the entire page's HTML to be loaded before running the script
+// ===================================================================
+// == THE CREED - MAIN JAVASCRIPT FILE
+// ===================================================================
+
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. DEFINE YOUR SLIDES ---
-  // This is the most important part to customize.
-  // The first item should match what's already in your HTML.
-  // Add a new {} object for each slide you want to have.
+  // We will organize our code into functions for clarity.
+  setupCustomCursor();
+  setupGallerySlider();
+  setupMobileNavbar(); // The new, smart navbar logic
+});
+
+// -------------------------------------------------------------------
+// --- 1. CUSTOM CURSOR LOGIC
+// -------------------------------------------------------------------
+function setupCustomCursor() {
+  const cursorDot = document.querySelector(".cursor-dot");
+  const cursorOutline = document.querySelector(".cursor-outline");
+
+  if (!cursorDot || !cursorOutline) return;
+
+  window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+    cursorOutline.animate(
+      { left: `${posX}px`, top: `${posY}px` },
+      { duration: 500, fill: "forwards" }
+    );
+  });
+
+  const interactiveElements = document.querySelectorAll(
+    "a, button, .btn, .nav-button, .main-header nav a, .testimonial, .gallery img"
+  );
+  interactiveElements.forEach((el) => {
+    el.addEventListener("mouseover", () => {
+      cursorDot.classList.add("active");
+      cursorOutline.classList.add("active");
+    });
+    el.addEventListener("mouseout", () => {
+      cursorDot.classList.remove("active");
+      cursorOutline.classList.remove("active");
+    });
+  });
+}
+
+// -------------------------------------------------------------------
+// --- 2. GALLERY SLIDER LOGIC
+// -------------------------------------------------------------------
+function setupGallerySlider() {
   const slides = [
     {
       mainImage: "public/midmain.png",
@@ -12,28 +56,27 @@ document.addEventListener("DOMContentLoaded", () => {
         "We cater to clients of every scale, always upholding a standard of excellence.",
     },
     {
-      mainImage: "public/midside.png", // <-- CHANGE to your second image
+      mainImage: "public/midside.png",
       titleImage: "public/text_center.png",
       subtitleText:
         "Our second sculpture explores the theme of heroic triumph.",
     },
     {
-      mainImage: "public/midside.png", // <-- CHANGE to your third image
-      titleImage: "public/text_center.png", // You can re-use titles if you want
+      mainImage: "public/right.png",
+      titleImage: "public/text_center.png",
       subtitleText: "This piece captures a moment of quiet contemplation.",
     },
-    // Add more slide objects here if you have more images
   ];
 
-  // --- 2. SELECT THE HTML ELEMENTS ---
-  // We select the elements by their class names from your HTML.
-  const leftArrow = document.querySelector(".gallery .left");
-  const rightArrow = document.querySelector(".gallery .right");
-  const mainImageElement = document.querySelector(".gallery .main-image");
+  const gallery = document.querySelector(".gallery");
+  if (!gallery) return; // Exit if the gallery doesn't exist on this page
+
+  const leftArrow = gallery.querySelector(".left");
+  const rightArrow = gallery.querySelector(".right");
+  const mainImageElement = gallery.querySelector(".main-image");
   const titleImageElement = document.querySelector(".flex-portfolio img");
   const subtitleElement = document.querySelector(".flex-portfolio .subtitle");
 
-  // Safety check: if any element isn't found, stop the script.
   if (
     !leftArrow ||
     !rightArrow ||
@@ -41,104 +84,119 @@ document.addEventListener("DOMContentLoaded", () => {
     !titleImageElement ||
     !subtitleElement
   ) {
-    console.error(
-      "A slider element could not be found. Please check your HTML class names."
-    );
     return;
   }
 
-  // --- 3. SLIDER LOGIC ---
-  let currentIndex = 0; // This variable tracks which slide is currently shown.
+  let currentIndex = 0;
 
-  // This function updates the page with the content of a specific slide
   function showSlide(index) {
-    // Fade out the current content
     mainImageElement.style.opacity = "0";
     titleImageElement.style.opacity = "0";
     subtitleElement.style.opacity = "0";
 
-    // Wait for the fade-out animation to finish before changing the content
     setTimeout(() => {
       const newSlide = slides[index];
-
-      // Update the sources and text
       mainImageElement.src = newSlide.mainImage;
       titleImageElement.src = newSlide.titleImage;
       subtitleElement.textContent = newSlide.subtitleText;
-
-      // Fade the new content back in
       mainImageElement.style.opacity = "1";
       titleImageElement.style.opacity = "1";
       subtitleElement.style.opacity = "1";
-    }, 300); // This delay (in ms) should match the CSS transition time
+    }, 300);
   }
 
-  // --- 4. ADD CLICK EVENTS TO THE ARROWS ---
-
-  // When the right arrow is clicked...
   rightArrow.addEventListener("click", () => {
-    // Move to the next index, or loop back to the start if at the end
     currentIndex = (currentIndex + 1) % slides.length;
     showSlide(currentIndex);
   });
 
-  // When the left arrow is clicked...
   leftArrow.addEventListener("click", () => {
-    // Move to the previous index, or loop to the end if at the start
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
     showSlide(currentIndex);
   });
-  const navButtons = document.querySelectorAll(".mobile-nav-bar .nav-button");
+}
+
+function setupMobileNavbar() {
+  const navBar = document.querySelector(".mobile-nav-bar");
+  if (!navBar) return; // Exit if the navbar doesn't exist on this page
+
+  const navButtons = navBar.querySelectorAll(".nav-button");
   const indicator = document.getElementById("nav-indicator");
 
-  // Make sure the elements exist before adding listeners
-  if (navButtons.length > 0 && indicator) {
-    function handleNavClick(e) {
-      // NOTE: We don't prevent default, so the links still work!
-      const button = e.currentTarget;
+  if (navButtons.length === 0 || !indicator) return;
 
-      // Remove 'active' class from all buttons
-      navButtons.forEach((btn) => btn.classList.remove("active"));
-
-      // Add 'active' class to the clicked button
-      button.classList.add("active");
-
-      // --- Move the Indicator ---
+  // --- Function to move the light indicator to a button ---
+  function moveIndicatorTo(button) {
+    if (!button) return;
+    setTimeout(() => {
       const buttonRect = button.getBoundingClientRect();
-      // The parentElement is the nav-bar itself
-      const navBarRect = button.parentElement.getBoundingClientRect();
-
-      // Calculate offset to center the indicator under the button
-      const indicatorOffset =
-        buttonRect.left -
-        navBarRect.left +
-        buttonRect.width / 2 -
-        indicator.offsetWidth / 2;
-      indicator.style.left = `${indicatorOffset}px`;
-    }
-
-    // Attach event listeners to all buttons
-    navButtons.forEach((button) => {
-      button.addEventListener("click", handleNavClick);
-    });
-
-    // --- Set the initial state on page load ---
-    // Find the initially active button and move the indicator to it
-    const activeButton = document.querySelector(
-      ".mobile-nav-bar .nav-button.active"
-    );
-    if (activeButton) {
-      // Use a small timeout to ensure all elements are rendered and have a size
-      setTimeout(() => {
-        const buttonRect = activeButton.getBoundingClientRect();
-        const navBarRect = activeButton.parentElement.getBoundingClientRect();
-        const initialOffset =
+      const navBarRect = navBar.getBoundingClientRect();
+      if (navBarRect.width > 0) {
+        const offset =
           buttonRect.left -
           navBarRect.left +
           buttonRect.width / 2 -
           indicator.offsetWidth / 2;
-        indicator.style.left = `${initialOffset}px`;
-      }, 100);
+        indicator.style.left = `${offset}px`;
+      }
+    }, 100); // A small delay ensures the browser has rendered everything
+  }
+
+  // --- The "Brain": This function now understands URL hashes correctly ---
+  function updateActiveState() {
+    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash; // Gets the # part, e.g., "#contact"
+
+    let activeButton = null;
+
+    // Remove active class from all buttons to reset
+    navButtons.forEach((btn) => btn.classList.remove("active"));
+
+    // --- PRIORITY 1: Check if the URL has a hash (#contact, #portfolio, etc.) ---
+    if (currentHash) {
+      // Find a button whose href ENDS WITH the current hash.
+      // This works for both href="#contact" and href="../index.html#contact"
+      activeButton = navBar.querySelector(
+        `a.nav-button[href$="${currentHash}"]`
+      );
+    }
+
+    // --- PRIORITY 2: If no hash, check the page filename (e.g., about.html) ---
+    if (!activeButton) {
+      const currentFile = currentPath.split("/").pop();
+      if (currentFile && currentFile !== "index.html" && currentFile !== "") {
+        navButtons.forEach((button) => {
+          if (button.getAttribute("href").endsWith(currentFile)) {
+            activeButton = button;
+          }
+        });
+      }
+    }
+
+    // --- PRIORITY 3: If still no match, it must be the homepage ---
+    if (!activeButton) {
+      activeButton = navBar.querySelector('a.nav-button[href$="#top"]');
+    }
+
+    // If we found a matching button, activate it!
+    if (activeButton) {
+      activeButton.classList.add("active");
+      moveIndicatorTo(activeButton);
     }
   }
-});
+
+  // --- Initialize everything ---
+  updateActiveState(); // Run the brain function on page load
+
+  navButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      // Instantly move the indicator on click for better user feedback
+      moveIndicatorTo(e.currentTarget);
+    });
+  });
+
+  // Re-run the brain function when user navigates with back/forward buttons
+  window.addEventListener("pageshow", updateActiveState);
+  window.addEventListener('hashchange', updateActiveState);
+
+}
