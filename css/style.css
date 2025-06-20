@@ -4,6 +4,8 @@
 @import url(https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Italiana&family=Lato:wght@300;400&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap);
+
+@import url(./common.css);
 .hero,
 .main-header {
   display: flex;
@@ -45,6 +47,10 @@ body {
   background-color: var(--bg-dark);
   background-image: linear-gradient(to right, #0f0f0f 8%, #371919 100%);
   font-family: var(--font-body);
+  overflow-x: hidden;
+}
+html,
+body {
   overflow-x: hidden;
 }
 .container {
@@ -534,9 +540,11 @@ a {
   .container {
     max-width: 100%;
     padding: 0 20px;
+    overflow-x: hidden;
   }
   .hero {
     /* margin: -40% auto; */
+    overflow-x: hidden;
     text-align: center;
   }
   .hero-content {
@@ -569,22 +577,10 @@ a {
   /* --- Side Elements --- */
   .side-icons-left,
   .vertical-text-widget,
-  .vertical-text-widget-2 {
+  .vertical-text-widget-2,
+  .vertical-text-widget-small {
     display: none;
   }
-  .vertical-text-widget-small {
-    display: block;
-    position: absolute;
-    right: -35px;
-    bottom: -180px;
-    transform: rotate(-90deg);
-    transform-origin: bottom right;
-    color: #d2ad75;
-    font-family: serif;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-
   /* --- Hero Section --- */
   .hero {
     flex-direction: column;
@@ -633,7 +629,7 @@ a {
   .hero-image img {
     position: static;
     transform: none;
-    width: 90%;
+    width: 150%;
     z-index: -2;
     max-width: 720px;
     margin: -100px 50px 0 0;
@@ -673,7 +669,7 @@ a {
   .portfolio-section .subtitle {
     width: 75%;
     margin: -50px auto 0;
-    font-size: 1.0rem;
+    font-size: 1rem;
     line-height: 1.5;
   }
   .gallery {
@@ -682,7 +678,8 @@ a {
     margin-top: 50px;
     margin-bottom: 50px;
   }
-  .left, .right{
+  .left,
+  .right {
     transform: scale(0.8);
   }
   .gallery .side-image {
@@ -694,9 +691,9 @@ a {
     margin-bottom: 0;
   }
   .portfolio-btn {
-    width: 40%;
+    width: 60%;
     max-width: 280px;
-    font-size: 1.0rem;
+    font-size: 1rem;
     padding: 12px 20px;
     margin-top: 40px;
   }
@@ -709,7 +706,7 @@ a {
   .contact-section {
     padding: 40px 0;
   }
-  .whoami{
+  .whoami {
     transform: scale(0.65);
     max-width: 450px;
   }
@@ -777,5 +774,5 @@ a {
 .gallery .main-image,
 .flex-portfolio img,
 .flex-portfolio .subtitle {
-    transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
