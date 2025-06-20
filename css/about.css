@@ -1,10 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Viaoda+Libre&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Antic+Didone&family=Jim+Nightshade&family=Viaoda+Libre&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Italiana&family=Lato:wght@300;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap");
-
+@import url(https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Viaoda+Libre&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Antic+Didone&family=Jim+Nightshade&family=Viaoda+Libre&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Italiana&family=Lato:wght@300;400&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap);
+.btn,
+.main-header nav a {
+  color: var(--text-gold);
+  font-family: "Jacques Francois", serif;
+}
 :root {
   --bg-dark: #140d0d;
   --bg-glow: #371919;
@@ -15,32 +19,29 @@
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Lato", sans-serif;
 }
-
 * {
   margin: 0;
   padding: 0;
-}
+    box-sizing: border-box;
 
+}
 body {
   background-color: var(--bg-dark);
   background-image: linear-gradient(to right, #0f0f0f 8%, #371919 100%);
   font-family: var(--font-body);
   color: var(--text-gold);
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
-
 .container {
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
 }
-
 a {
   color: var(--text-light-gold);
   text-decoration: none;
 }
-
 .main-header {
   display: flex;
   align-items: center;
@@ -48,40 +49,32 @@ a {
   padding: 45px 10px;
   justify-content: flex-start;
 }
-
 .main-header .logo a {
   font-size: 2rem;
   font-weight: 300;
   color: var(--text-gold);
 }
-
 .main-header nav ul {
   list-style: none;
   display: flex;
   gap: 40px;
 }
-
 .main-header nav a {
-  font-family: "Jacques Francois", serif;
   font-size: 20px;
   font-weight: 300;
   letter-spacing: 1px;
-  color: var(--text-gold);
   transition: color 0.3s;
 }
 .main-header nav a:hover {
   color: var(--text-white);
 }
-
 .about-section {
   display: flex;
   align-items: center;
-  /* min-height: 80vh; */
   position: relative;
   padding: 4rem 0;
   margin-left: 30px;
 }
-/*  */
 .about-content {
   flex-basis: 50%;
   width: 1500px;
@@ -125,8 +118,6 @@ a {
   display: inline-block;
   border: 1px solid var(--text-gold);
   padding: 12px 35px;
-  color: var(--text-gold);
-  font-family: "Jacques Francois", serif;
   font-size: 24.77px;
   border-radius: 50px;
   background: rgba(0, 0, 0, 0.2);
@@ -136,7 +127,6 @@ a {
   background-color: var(--text-gold);
   color: var(--bg-dark);
 }
-
 .about-image {
   position: absolute;
   right: 12%;
@@ -144,14 +134,12 @@ a {
   transform: scale(1.4);
   z-index: 1;
 }
-
 .about-image img {
   width: 100%;
   max-width: 935px;
   height: auto;
   position: relative;
   z-index: 2;
-
   filter: drop-shadow(0px 3.76px 5.2px #000);
 }
 .quote-section {
@@ -159,33 +147,26 @@ a {
   align-items: center;
   gap: 25px;
   margin-top: 84px;
-  /* padding-top: 0.5rem; */
   border-top: 1px solid #d2ad75;
 }
-
 .quote-icons {
   display: flex;
   gap: 15px;
-  /* transform: scale(0.9);*/
   margin-left: 8px;
   margin-top: 24px;
 }
-
 #mail {
   margin-top: 6px;
 }
-
 .quote-text {
   font-family: var(--font-serif);
 }
-
 .quote-text p {
   font-size: 19px;
-  margin: 10px 0 9px 0;
+  margin: 10px 0 9px;
   line-height: 1.5;
-  color: #ffffff;
+  color: #fff;
 }
-
 .quote-text span {
   display: block;
   font-size: 22px;
@@ -195,7 +176,6 @@ a {
   font-style: normal;
   text-shadow: -2.61px 2.61px 2.61px #000;
 }
-
 .vertical-text-widget {
   position: absolute;
   bottom: 625px;
@@ -210,7 +190,7 @@ a {
   font-size: 23px;
   letter-spacing: 1px;
 }
-
+.vertical-text-widget::after,
 .vertical-text-widget::before {
   content: "";
   display: block;
@@ -218,98 +198,88 @@ a {
   height: 2px;
   width: 50px;
 }
-
-.vertical-text-widget::after {
-  content: "";
-  display: block;
-  background-color: #d2ad75;
-  height: 2px;
-  width: 50px;
-}
-
 @media (max-width: 768px) {
   .container {
     max-width: 100%;
-    padding: 0px 20px;
+    padding: 0 20px;
   }
-  .main-header nav ul,
-  .main-header nav a {
+  .main-header nav a,
+  .main-header nav ul {
     display: none;
   }
   .main-header {
     justify-content: center;
-    padding: 50px 10px 25px 10px;
+    gap:0px;
+    padding: 50px 10px 25px;
   }
-
   .about-section {
+    display: grid;
+    place-items: center;
     flex-direction: column;
     text-align: center;
-    margin-left: 0;
+    margin-left: 0px;
     padding: 2rem 0;
-
   }
-
   .about-content {
-    flex-basis: 100%;
+    position: relative;
+    /* flex-basis: 100%; */
     width: 78%;
-    order: 1; /* a place before image */
+    order: 1;
     text-align: left;
+    grid-area: 1/1;
+    padding-bottom: 50px;
   }
-
   .about-content .heading span {
-    text-align: left;
+    margin-left: auto; /* This centers the block */
+    margin-right: auto; /* This centers the block */
     font-size: 2.2rem;
-    margin-left: 4px;
+    margin-left: 0px;
+    text-align: left;
   }
-
   .about-content .heading h1 {
     text-align: left;
     font-size: 6rem;
     margin-left: 0;
   }
-
   .about-content p {
-
     text-align: left;
     font-size: 19px;
     line-height: 1.6;
   }
-
   .about-content p strong {
     font-size: 25px;
   }
-
-  .btn{
+  .btn {
     text-align: left;
     font-size: 17px;
-    margin-left: 0px;
+    margin-left: 0;
   }
-.about-image{
-  top:57%
-}
-  .about-image img {
+  .about-image {
     position: relative;
-    order: 2; 
-    right: 18%;
-    margin-top: 21%;
+    grid-area: 1/1;
     width: 100%;
+    /* align-self: end; */
+
+    justify-content: center;
+  }
+  .about-image img {
+    transform: translateY(120px);
+    position: relative;
     max-width: 450px;
   }
-
   .quote-section {
     width: 100%;
-    margin: 60px auto 0 auto;
+    margin: 60px auto 0;
   }
-
   .quote-icons {
     transform: scale(0.8);
-    margin: 0 0 15px 0;
+    margin: 0 0 15px;
   }
   .quote-text p {
     font-size: 14px;
     text-align: left;
   }
-  .quote-text span{
+  .quote-text span {
     font-size: 14px;
     margin-left: 0 auto;
     text-shadow: -2.61px 2.61px 2.61px #000;
@@ -317,12 +287,10 @@ a {
   }
   .vertical-text-widget {
     bottom: 200px;
-   font-size:11px;
+    font-size: 11px;
   }
-  .vertical-text-widget::before{
-    width: 30px;
-  }
-  .vertical-text-widget::after{
+  .vertical-text-widget::after,
+  .vertical-text-widget::before {
     width: 30px;
   }
 }
