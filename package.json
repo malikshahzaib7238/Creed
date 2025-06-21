@@ -1,7 +1,6 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://malikshahzaib7238.github.io/Creed>",
   "private": true,
   "main": "index.js",
   "license": "ISC",

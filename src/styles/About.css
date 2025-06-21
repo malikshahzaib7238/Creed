@@ -5,6 +5,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap);
 @import url(./common.css);
+@import url(./cursor.css);
 .btn,
 .main-header nav a {
   color: var(--text-gold);
@@ -37,7 +38,6 @@ body {
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
-
 }
 a {
   color: var(--text-light-gold);
@@ -80,7 +80,6 @@ a {
   flex-basis: 50%;
   width: 1500px;
   z-index: 2;
-
 }
 .about-content .heading {
   margin-bottom: 25px;
@@ -201,6 +200,29 @@ a {
   width: 50px;
 }
 @media (max-width: 768px) {
+  .gold-trail {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffd700, #ffcc00, #ffa500);
+    pointer-events: none;
+    z-index: 9997;
+    animation: goldTrail 1s ease-out forwards;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 8px gold);
+  }
+
+  @keyframes goldTrail {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-10px);
+    }
+  }
   .container {
     max-width: 100%;
     padding: 0 20px;
@@ -230,7 +252,6 @@ a {
     text-align: left;
     grid-area: 1/1;
     padding-bottom: 50px;
-
   }
   .about-content .heading span {
     margin-left: auto; /* This centers the block */
@@ -264,8 +285,6 @@ a {
     align-self: center;
 
     justify-content: center;
-
-
   }
   .about-image img {
     transform: translateY(-10px);
@@ -274,8 +293,8 @@ a {
     /* transform: scale(1.1); */
     max-width: 100%;
     filter: drop-shadow(0px 3.76px 5.2px rgba(0, 0, 0, 0.25));
-  filter: brightness(0.75);
-  margin-bottom: 50px;;
+    filter: brightness(0.75);
+    margin-bottom: 50px;
   }
 
   .quote-section {

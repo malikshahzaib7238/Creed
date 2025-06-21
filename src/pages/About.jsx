@@ -7,6 +7,8 @@ import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import MobileNavbar from "../components/MobileNavbar";
 import ParticlesBackground from "../components/ParticlesBackground";
+
+import CustomCursor from "../components/CustomCursor";
 const navLinks = [
   { label: "Home", path: "/#top" },
   { label: "About", path: "/about" },
@@ -85,6 +87,7 @@ const AboutPage = () => {
       transition={pageTransition}
     >
         <ParticlesBackground/>
+        <CustomCursor/>
       <div className="container">
         <Header navLinks={navLinks} />
         <div className="vertical-text-widget">
