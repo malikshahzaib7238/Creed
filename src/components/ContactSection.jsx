@@ -1,16 +1,19 @@
 import React from "react";
-
+import Reveal from "./Reveal";
 const ContactSection = () => {
   const publicUrl = process.env.PUBLIC_URL;
 
   return (
     <>
+    <Reveal>
       <div className="cee" id="contact">
         <img className="logo-down" src={`${publicUrl}/icon.png`} alt="logo" />
       </div>
+      </Reveal>
       <section className="contact-section">
         <span id="contact" className="section-anchor"></span>
         <div className="contact-inner">
+          <Reveal>
           <div className="contact-details">
             <img
               className="whoami"
@@ -42,11 +45,13 @@ const ContactSection = () => {
               </p>
             </div>
           </div>
+          </Reveal>
           <img
             className="btw-form"
             src={`${publicUrl}/icon.png`}
             alt="form separator"
           />
+          <Reveal>
           <div className="contact-form-container">
             <h3>Contact Form</h3>
             <form action="#" method="post">
@@ -73,6 +78,7 @@ const ContactSection = () => {
               </button>
             </form>
           </div>
+        </Reveal>
         </div>
       </section>
     </>

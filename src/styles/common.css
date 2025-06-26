@@ -84,7 +84,31 @@
   border-radius: 2px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 880px) {
+  .gold-trail {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffd700, #ffcc00, #ffa500);
+    pointer-events: none;
+    z-index: 9997;
+    animation: goldTrail 1s ease-out forwards;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 8px gold);
+  }
+
+  @keyframes goldTrail {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-10px);
+    }
+  }
+
   .mobile-nav-bar {
     display: flex;
     position: fixed;

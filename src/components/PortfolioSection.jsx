@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Reveal from "./Reveal";
 const slides = [
   {
     mainImage: "midmain.png",
@@ -55,73 +55,68 @@ const PortfolioSection = () => {
   return (
     <section className="portfolio-section" id="portfolio">
       <div className="container">
-        <div className="testimonial">
-          <div className="image-container">
-            <img src={`${publicUrl}/small.png`} alt="GigaChad profile" />
+        {/* Wrap the testimonial block */}
+        <Reveal>
+          <div className="testimonial">
+            <div className="image-container">
+              <img src={`${publicUrl}/small.png`} alt="GigaChad profile" />
+            </div>
+            <div className="testimonial-text">
+              <span className="testimonial-author">GigaChad Says:</span>
+              <p>
+                Asked an edit and got a masterpiece. This guy knows what he's
+                doing!
+              </p>
+            </div>
           </div>
-          <div className="testimonial-text">
-            <span className="testimonial-author">GigaChad Says:</span>
-            <p>
-              Asked an edit and got a masterpiece. This guy knows what he's
-              doing!
+        </Reveal>
+
+        {/* Wrap the chevron arrow */}
+        <Reveal delay={0.2}>
+          <img
+            src={`${publicUrl}/down.png`}
+            className="nav-chevron down"
+            alt="down arrow"
+          />
+        </Reveal>
+
+        {/* Wrap the entire gallery container */}
+        <div className="gallery" delay={0.25}>
+          <img
+            className="left" /* ... */ onClick={handlePrev}
+          />
+          <img
+            src={`${publicUrl}/midside.png`} /* ... */ className="side-image"
+          />
+          {/* Your state-controlled image remains inside, it will still fade correctly */}
+          <img
+            src={`${publicUrl}/${currentSlide.mainImage}`} /* ... */
+            style={{ opacity: isFading ? 0 : 1 }}
+          />
+          <img
+            src={`${publicUrl}/midside.png`} /* ... */ className="side-image"
+          />
+          <img
+            className="right" /* ... */ onClick={handleNext}
+          />
+        </div>
+
+        {/* Wrap the bottom text and button block */}
+        <Reveal delay={0.35}>
+          <div className="flex-portfolio">
+            <img
+              src={`${publicUrl}/${currentSlide.titleImage}`}
+              alt=""
+              style={{ opacity: isFading ? 0 : 1 }}
+            />
+            <p className="subtitle" style={{ opacity: isFading ? 0 : 1 }}>
+              {currentSlide.subtitleText}
             </p>
+            <a href="#contact" className="portfolio-btn">
+              Contact Me
+            </a>
           </div>
-        </div>
-
-        <img
-          src={`${publicUrl}/down.png`}
-          className="nav-chevron down"
-          alt="down arrow"
-        />
-
-        <div className="gallery">
-          <img
-            className="left"
-            src={`${publicUrl}/left.png`}
-            alt="Previous"
-            onClick={handlePrev}
-            style={{ cursor: "pointer" }}
-          />
-          <img
-            src={`${publicUrl}/midside.png`}
-            alt="Sculpture detail one"
-            className="side-image"
-          />
-
-          {/* These elements are now controlled by React state */}
-          <img
-            src={`${publicUrl}/${currentSlide.mainImage}`}
-            alt="Main sculpture"
-            className="main-image"
-            style={{ opacity: isFading ? 0 : 1 }}
-          />
-
-          <img
-            src={`${publicUrl}/midside.png`}
-            alt="Sculpture detail two"
-            className="side-image"
-          />
-          <img
-            className="right"
-            src={`${publicUrl}/right.png`}
-            alt="Next"
-            onClick={handleNext}
-            style={{ cursor: "pointer" }}
-          />
-        </div>
-        <div className="flex-portfolio">
-          <img
-            src={`${publicUrl}/${currentSlide.titleImage}`}
-            alt=""
-            style={{ opacity: isFading ? 0 : 1 }}
-          />
-          <p className="subtitle" style={{ opacity: isFading ? 0 : 1 }}>
-            {currentSlide.subtitleText}
-          </p>
-          <a href="#contact" className="portfolio-btn">
-            Contact Me
-          </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

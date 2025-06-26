@@ -8,6 +8,8 @@ import Header from "../components/Header";
 import MobileNavbar from "../components/MobileNavbar";
 import ParticlesBackground from "../components/ParticlesBackground";
 
+import Reveal from "../components/Reveal";
+
 import CustomCursor from "../components/CustomCursor";
 const navLinks = [
   { label: "Home", path: "/#top" },
@@ -93,13 +95,20 @@ const AboutPage = () => {
         <div className="vertical-text-widget">
           <p>The Owner</p>
         </div>
+
         <main>
           <section className="about-section">
             <div className="about-content">
               <div className="heading">
+                <Reveal>
                 <span>Who is</span>
-                <h1>Raja Ali Sher</h1>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <h1>Raja Ali Sher</h1>
+                  </Reveal>
+
               </div>
+              <Reveal delay={0.2}>
               <p>
                 He stands as the <strong>founder</strong> of The Creed's
                 creative agency, wielding the art of video editing like a
@@ -108,11 +117,15 @@ const AboutPage = () => {
                 chatter, but understanding forged through conversation. Time is
                 sacred, and he wastes none—not his own, and never his client's.
               </p>
+              </Reveal>
 
               {/* Added: The "Talk to him" button was missing. It now correctly links to the contact section on the homepage. */}
+              <Reveal delay={0.25}>
               <a href="/#contact" className="btn">
                 Talk to him
               </a>
+              </Reveal>
+              <Reveal delay={0.3}>
 
               <div className="quote-section">
                 <div className="quote-icons">
@@ -132,7 +145,9 @@ const AboutPage = () => {
                   <span>- Alexis Carrel</span>
                 </div>
               </div>
+              </Reveal>
             </div>
+
             <div className="about-image">
               <img
                 src={`${publicUrl}/hack.png`}
