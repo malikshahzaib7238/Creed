@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import App from "./pages/App";
 import AboutPage from "./pages/About";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Test from "./pages/Test";
 
-import IntroWrapper from "./components/IntroWrapper";
+import IntroWrapper from "./hooks/IntroWrapper";
 const Router = () => {
   const router = createBrowserRouter([
     {

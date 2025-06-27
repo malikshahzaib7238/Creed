@@ -1,20 +1,17 @@
 import React from "react";
-import Reveal from "./Reveal";
+import Reveal from "../hooks/Reveal";
 const ContactSection = () => {
   const publicUrl = process.env.PUBLIC_URL;
 
   return (
     <>
-    <Reveal>
       <div className="cee" id="contact">
         <img className="logo-down" src={`${publicUrl}/icon.png`} alt="logo" />
       </div>
-      </Reveal>
       <section className="contact-section">
         <span id="contact" className="section-anchor"></span>
         <div className="contact-inner">
-          <Reveal>
-          <div className="contact-details">
+          <Reveal className="contact-details">
             <img
               className="whoami"
               src={`${publicUrl}/text_bottom.png`}
@@ -44,7 +41,7 @@ const ContactSection = () => {
                 +(92)3020887777
               </p>
             </div>
-          </div>
+          {/* </div> */}
           </Reveal>
           <img
             className="btw-form"

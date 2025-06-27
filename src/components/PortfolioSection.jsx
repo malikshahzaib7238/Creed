@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Reveal from "./Reveal";
+import Reveal from "../hooks/Reveal";
+import "../styles/index.css"
 const slides = [
   {
     mainImage: "midmain.png",
@@ -53,8 +54,8 @@ const PortfolioSection = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <section className="portfolio-section" id="portfolio">
-      <div className="container">
+    <section className="portfolio-section" id="portfolio" >
+      <div className="container" style={{ overflow: 'hidden' }}>
         {/* Wrap the testimonial block */}
         <Reveal>
           <div className="testimonial">
@@ -72,7 +73,7 @@ const PortfolioSection = () => {
         </Reveal>
 
         {/* Wrap the chevron arrow */}
-        <Reveal delay={0.2}>
+        <Reveal >
           <img
             src={`${publicUrl}/down.png`}
             className="nav-chevron down"
@@ -81,28 +82,31 @@ const PortfolioSection = () => {
         </Reveal>
 
         {/* Wrap the entire gallery container */}
-        <div className="gallery" delay={0.25}>
-          <img
-            className="left" /* ... */ onClick={handlePrev}
+        <Reveal>
+        <div className="gallery" >
+
+        <img
+            className="left" /* ... */ onClick={handlePrev} src="/left.png"
           />
           <img
             src={`${publicUrl}/midside.png`} /* ... */ className="side-image"
           />
-          {/* Your state-controlled image remains inside, it will still fade correctly */}
           <img
             src={`${publicUrl}/${currentSlide.mainImage}`} /* ... */
+            className="main-image"
             style={{ opacity: isFading ? 0 : 1 }}
           />
           <img
             src={`${publicUrl}/midside.png`} /* ... */ className="side-image"
           />
           <img
-            className="right" /* ... */ onClick={handleNext}
+            className="right" /* ... */ onClick={handleNext} src="/right.png"
           />
-        </div>
+          </div>
+        </Reveal>
 
         {/* Wrap the bottom text and button block */}
-        <Reveal delay={0.35}>
+<Reveal>
           <div className="flex-portfolio">
             <img
               src={`${publicUrl}/${currentSlide.titleImage}`}
@@ -115,9 +119,11 @@ const PortfolioSection = () => {
             <a href="#contact" className="portfolio-btn">
               Contact Me
             </a>
-          </div>
-        </Reveal>
+            {/* </Reveal> */}
+      {/* </Reveal> */}
       </div>
+      </Reveal>
+          </div>
     </section>
   );
 };

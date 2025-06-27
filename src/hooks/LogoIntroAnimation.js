@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import useWindowSize from "../hooks/useWindowSize";
+import useWindowSize from "./useWindowSize";
 
 const LogoIntroAnimation = ({ onAnimationComplete, fontFamily = "'Times New Roman', serif" }) => {
   const mainControls = useAnimation();

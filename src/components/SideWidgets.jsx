@@ -1,64 +1,42 @@
 import React from "react";
-import { motion } from "framer-motion"; // <-- Import motion
+import Reveal from "../hooks/Reveal";
 
 const SideWidgets = () => {
   const publicUrl = process.env.PUBLIC_URL;
 
-  const widgetVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 },
-  };
-
-  const textWidgetVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  }
-
   return (
     <>
-      <motion.div
-        className="side-icons-left"
-        initial="hidden"
-        animate="visible"
-        transition={{ type: "spring", stiffness: 100, damping: 20, staggerChildren: 0.2, delayChildren: 0.5 }}
-      >
-        <motion.img variants={widgetVariants} src={`${publicUrl}/icon.png`} alt="Icon" id="icon" />
-        <motion.a variants={widgetVariants} href="tel:+923020887777">
+      {/* Apply the className directly to the Reveal component */}
+      <div className="side-icons-left" direction="right">
+        <Reveal >
+        <img src={`${publicUrl}/icon.png`} alt="Icon" id="icon" />
+        </Reveal>
+        <Reveal >
+        <a href="tel:+923020887777">
           <img src={`${publicUrl}/phone.png`} alt="Phone" />
-        </motion.a>
-        <motion.a variants={widgetVariants} href="mailto:alisocial233@gmail.com">
+        </a>
+        </Reveal>
+        <Reveal>
+        <a href="mailto:alisocial233@gmail.com">
           <img src={`${publicUrl}/mail.png`} alt="Mail" />
-        </motion.a>
-      </motion.div>
+        </a>
+        </Reveal>
+      </div>
 
-      {/* Each vertical text widget gets its own animation */}
-      <motion.div
-        className="vertical-text-widget-"
-        variants={textWidgetVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.5, delay: 1.0 }}
-      >
+      {/* Do the same for all other widgets */}
+      {/* <Reveal> */}
+      <Reveal className="vertical-text-widget-" rotate={-90} >
         <p>delivering perfection</p>
-      </motion.div>
-      <motion.div
-        className="vertical-text-widget-2"
-        variants={textWidgetVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.5, delay: 1.1 }}
-      >
+      {/* </div> */}
+      </Reveal>
+
+      <Reveal className="vertical-text-widget-2" rotate={-90} >
         <p>voice your needs</p>
-      </motion.div>
-      <motion.div
-        className="vertical-text-widget-small"
-        variants={textWidgetVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.5, delay: 1.2 }}
-      >
+      </Reveal>
+
+      <div  className="vertical-text-widget-small" >
         <p>know your contacts</p>
-      </motion.div>
+      </div>
     </>
   );
 };

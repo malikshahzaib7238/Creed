@@ -1,12 +1,12 @@
 import React from "react";
-import Reveal from "./Reveal";
-
+import Reveal from "../hooks/Reveal";
+import "../styles/Hero.css"
 const HeroSection = () => {
   const publicUrl = process.env.PUBLIC_URL;
 
   return (
     <main>
-      <section className="hero">
+      <section className="hero" >
         <div className="hero-content">
           {/* Left side remains the same */}
           <Reveal>
@@ -16,7 +16,7 @@ const HeroSection = () => {
             </div>
           </Reveal>
           <div className="flex-sub">
-            <Reveal delay={0.2}>
+            <Reveal >
               <p>
                 "We produce videos as captivating and{" "}
                 <span id="bl">
@@ -25,7 +25,7 @@ const HeroSection = () => {
                 </span>
               </p>
             </Reveal>
-            <Reveal delay={0.3}>
+            <Reveal >
               <a href="#contact" className="btn">
                 Contact Me
               </a>
@@ -35,14 +35,14 @@ const HeroSection = () => {
 
         {/* --- THE FIX IS HERE --- */}
         {/* We wrap the entire container div, not the individual elements inside */}
-        <div className="hero-image" delay={0.3} yOffset={50}>
+        <Reveal className="hero-image"  >
           {/* These elements are now direct children, their layout is preserved */}
           <img
             src={`${publicUrl}/main.png`}
             alt="Statue of Perseus with the Head of Medusa"
           />
           <h3>We Sculpt Visual Art...</h3>
-        </div>
+        </Reveal>
       </section>
     </main>
   );

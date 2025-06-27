@@ -9,8 +9,8 @@ import { useLocation } from "react-router-dom";
 import PortfolioSection from "../components/PortfolioSection";
 import ContactSection from "../components/ContactSection";
 import MobileNavbar from "../components/MobileNavbar";
-import ParticlesBackground from "../components/ParticlesBackground";
-import CustomCursor from "../components/CustomCursor";
+import ParticlesBackground from "../hooks/ParticlesBackground";
+import CustomCursor from "../hooks/CustomCursor";
 
 const pageVariants = {
   initial: { opacity: 0 },

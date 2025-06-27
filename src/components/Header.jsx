@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // <-- Import motion
-
+import "../styles/Header.css";
 const Header = ({ navLinks = [] }) => {
   const publicUrl = process.env.PUBLIC_URL;
 

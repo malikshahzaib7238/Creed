@@ -1,0 +1,22 @@
+.main-header {
+  gap: 70px;
+  padding: 45px 10px;
+  justify-content: flex-start;
+}
+.main-header .logo a {
+  font-size: 2rem;
+}
+.main-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+.main-header nav a {
+  font-size: 20px;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+.main-header nav a:hover {
+  color: var(--text-white);
+}
+

@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import MobileNavbar from "../components/MobileNavbar";
-import ParticlesBackground from "../components/ParticlesBackground";
+import ParticlesBackground from "../hooks/ParticlesBackground";
 
-import Reveal from "../components/Reveal";
+import Reveal from "../hooks/Reveal";
 
-import CustomCursor from "../components/CustomCursor";
+import CustomCursor from "../hooks/CustomCursor";
 const navLinks = [
   { label: "Home", path: "/#top" },
   { label: "About", path: "/about" },
