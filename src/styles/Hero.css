@@ -90,61 +90,63 @@
 }
 @media (max-width: 1707px) {
   .hero-image img {
-    width: 90%;
-    top: -10%;
-    left: -4%;
+    width: 97%;
+    top: -15%;
+    left: -13%;
   }
   .hero-image h3 {
     font-size: 63px;
     margin-top: 550px;
+    margin-left: -130px;
   }
 }
 @media (max-width: 1537px) {
   .hero-image img {
-    width: 105%;
-    top: -10%;
-    left: -18%;
+    width: 110%;
+    top: -17%;
+    left: -25%;
   }
   .hero-image h3 {
-    font-size: 58px;
-    margin-top: 500px;
-    margin-left: -100px;
+    font-size: 56px;
+    margin-top: 490px;
+    margin-left: -190px;
   }
 }
 @media (max-width: 1397px) {
   .hero-image img {
     width: 120%;
-    top: -16%;
-    left: -32%;
+    top: -23%;
+    left: -37%;
   }
   .hero-image h3 {
-    font-size: 54px;
-    margin-top: 420px;
-    margin-left: -120px;
+    font-size: 52px;
+    margin-top: 410px;
+    margin-left: -200px;
   }
 }
 @media (max-width: 1229px) {
   .hero-image img {
     width: 150%;
-    top: -18%;
+    top: -23%;
     left: -65%;
   }
   .hero-image h3 {
-    font-size: 48px;
-    margin-top: 380px;
-    margin-left: -240px;
+    font-size: 46px;
+    margin-top: 370px;
+    margin-left: -260px;
   }
 }
 @media (max-width: 1025px) {
   .hero-image img {
-    width: 200%;
-    top: -5%;
-    left: -120%;
+    width: 250%;
+    top: -21%;
+    left: -170%;
+    z-index: -1;
   }
   .hero-image h3 {
-    font-size: 40px;
-    margin-top: 330px;
-    margin-left: -240px;
+    font-size: 38px;
+    margin-top: 350px;
+    margin-left: -420px;
   }
 }
 @media (max-width: 880px) {
