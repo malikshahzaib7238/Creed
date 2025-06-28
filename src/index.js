@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 
 import AboutPage from "./pages/About";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Test from "./pages/Test";
 
 import IntroWrapper from "./hooks/IntroWrapper";
 const Router = () => {
@@ -14,13 +13,8 @@ const Router = () => {
     },
     {
       path: "/about",
-      element: <AboutPage />
+      element: <AboutPage />,
     },
-    {
-      path: "/test",
-      element: <Test/>
-    }
-
   ]);
 
   return <RouterProvider router={router} />;
@@ -29,6 +23,6 @@ const Router = () => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-        <Router />
+    <Router />
   </React.StrictMode>
 );

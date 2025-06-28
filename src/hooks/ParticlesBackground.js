@@ -14,10 +14,10 @@ const ParticlesBackground = () => {
       },
     },
     fpsLimit: 120,
-    // We go back to a single, simple particle definition
+
     particles: {
       number: {
-        value: 60, // A healthy number of particles on screen at all times
+        value: 60,
         density: {
           enable: true,
           value_area: 800,
@@ -40,7 +40,7 @@ const ParticlesBackground = () => {
           enable: true,
           speed: 0.8,
           startValue: "random",
-          // IMPORTANT: We don't destroy particles based on opacity
+
           destroy: "none",
         },
       },
@@ -49,10 +49,8 @@ const ParticlesBackground = () => {
         animation: {
           enable: true,
           speed: 3,
-          startValue: "random", // Some start big, some start small
-          // --- THE SINGLE MOST IMPORTANT CHANGE ---
-          // By setting destroy to "none", particles will loop their animation
-          // instead of disappearing forever. This guarantees particles are always present.
+          startValue: "random",
+
           destroy: "none",
           sync: false,
         },
@@ -64,8 +62,6 @@ const ParticlesBackground = () => {
         random: true,
         straight: false,
         outModes: {
-          // This makes particles that go off-screen reappear on the other side.
-          // This also guarantees a constant number of particles.
           default: "out",
         },
       },

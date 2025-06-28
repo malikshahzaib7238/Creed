@@ -1,25 +1,16 @@
-/* src/App.css */
-
 body {
   cursor: none;
   background-color: #0f0f0f;
   overflow: hidden;
 }
 
-/* === FIX for Problem 2: Hiding the pointer on interactive elements === */
-/* This rule is more specific than the 'body' rule, so it correctly
-     overrides the default browser "hand" pointer on links and buttons. */
-
 .cursor-blade {
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index:29009999;
+  z-index: 29009999;
 
-  /* === FIX for Problem 1: Sizing === */
-  /* I've reduced the size from 150px to a smaller 100px.
-       You can change this value to whatever looks best to you (e.g., 80px, 120px). */
   width: 55px;
   height: 55px;
 
@@ -43,23 +34,27 @@ textarea,
   cursor: none;
 }
 .cursor-particle {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 29009999;
-    filter: drop-shadow(0 0 6px #ff4500);
-    animation: flame 1.1s ease-out forwards;
-    transform: translate(var(--scatter-x), var(--scatter-y));
-    mix-blend-mode: screen; /* brightens overlapping colors */
-  }
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 29009999;
+  filter: drop-shadow(0 0 6px #ff4500);
+  animation: flame 1.1s ease-out forwards;
+  transform: translate(var(--scatter-x), var(--scatter-y));
+  mix-blend-mode: screen;
+}
 
-  @keyframes flame {
-    0% {
-      transform: translate(var(--scatter-x), var(--scatter-y)) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(calc(var(--scatter-x) * 1.5), calc(var(--scatter-y) * 1.5)) scale(0.2);
-      opacity: 0;
-    }
+@keyframes flame {
+  0% {
+    transform: translate(var(--scatter-x), var(--scatter-y)) scale(1);
+    opacity: 1;
   }
+  100% {
+    transform: translate(
+        calc(var(--scatter-x) * 1.5),
+        calc(var(--scatter-y) * 1.5)
+      )
+      scale(0.2);
+    opacity: 0;
+  }
+}

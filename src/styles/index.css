@@ -7,7 +7,6 @@
 @import url(common.css);
 @import url(cursor.css);
 
-
 .hero-content h1,
 .hero-content h2 {
   font-weight: 400;
@@ -27,7 +26,6 @@
 .main-header .logo a,
 .main-header nav a,
 body {
-
   color: var(--text-gold);
 }
 .btn,
@@ -53,15 +51,12 @@ body {
 * {
   margin: 0;
   padding: 0;
-  /* border:1px solid red; */
 }
 body {
   background-color: var(--bg-dark);
   background-image: linear-gradient(to right, #0f0f0f 8%, #371919 100%);
   background-attachment: fixed;
   font-family: var(--font-body);
-  /* overflow: hidden; */
-
 }
 body,
 html {
@@ -95,12 +90,10 @@ a {
   margin-top: -1%;
   text-align: center;
   z-index: 1000000000000000;
-  /* min-height: 2000vh; */
+
   position: relative;
 }
 .testimonial {
-  /* position: relative; */
-  /* z-index: 1000000; */
   max-width: 550px;
   margin: 0 auto 25px;
   display: flex;
@@ -112,7 +105,6 @@ a {
   border-bottom: 1.7px solid #d2ad75;
 }
 .image-container {
-
   border-radius: 50%;
   display: inline-block;
   display: flex;
@@ -121,7 +113,6 @@ a {
   box-shadow: 0 0 3px 1.39px #ffc46c;
 }
 .testimonial img {
-
   width: 80px;
   height: 90px;
   border-radius: 50%;
@@ -144,7 +135,6 @@ a {
 }
 .portfolio-section h2,
 .script-font {
-
   font-family: "Jim Nightshade", cursive;
 }
 .nav-chevron {
@@ -383,7 +373,8 @@ a {
   justify-content: center;
   box-sizing: border-box;
 }
-.left,.right{
+.left,
+.right {
   display: none;
 }
 .contact-form-container .btn:active {
@@ -423,9 +414,8 @@ a {
   font-family: serif;
   font-size: 23px;
   transform-origin: bottom right;
-  /* rotate: -90deg; */
+
   letter-spacing: 1px;
-  /* transform-origin: bottom right; */
 }
 .vertical-text-widget- {
   bottom: -520px;
@@ -692,7 +682,6 @@ a {
   }
   .container,
   .hero {
-    /* overflow-x: hidden; */
   }
   .gallery .side-image,
   .main-header nav,
@@ -727,7 +716,6 @@ a {
   .right {
     display: inline;
     transform: scale(0.8);
-    /* display: block; */
   }
   .testimonial-text p {
     font-size: 1.1rem;

@@ -34,9 +34,9 @@ const SideWidgets = () => {
         <p>voice your needs</p>
       </Reveal>
 
-      <div  className="vertical-text-widget-small" >
+      <Reveal  className="vertical-text-widget-small" rotate={-90}>
         <p>know your contacts</p>
-      </div>
+      </Reveal>
     </>
   );
 };

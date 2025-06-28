@@ -16,8 +16,6 @@ const IntroWrapper = () => {
         <LogoIntroAnimation
           key="intro-animation"
           onAnimationComplete={handleAnimationComplete}
-          // --> CUSTOMIZE YOUR FONT HERE <--
-          // You can use a Google Font name if you've imported it in your index.css
           fontFamily="'Cormorant Garamond', serif"
         />
       ) : (

@@ -1,7 +1,5 @@
-// Reveal.js
-
 import React from "react";
-import { motion, noop, scale } from "framer-motion";
+import { motion} from "framer-motion";
 
 /**
  * A reusable component to animate its children when they scroll into view.
@@ -22,7 +20,7 @@ const Reveal = ({
   direction = "up",
   distance = 80,
   rotate = 0,
-  scale=1,
+  scale = 1,
 }) => {
   const variants = {
     hidden: {
@@ -30,21 +28,19 @@ const Reveal = ({
       x:
         direction === "left" ? -distance : direction === "right" ? distance : 0,
       y: direction === "up" ? distance : direction === "down" ? -distance : 0,
-      rotate: rotate, // <-- Apply rotation in the hidden state
-      // translateY: translateY,
-      scale:scale
+      rotate: rotate,
+
+      scale: scale,
     },
     visible: {
-
       opacity: 1,
       x: 0,
       y: 0,
-      rotate: rotate, // <-- Apply rotation in the visible state
-      // translateY:translateY,
-      scale: scale
+      rotate: rotate,
+
+      scale: scale,
     },
   };
-
 
   return (
     <motion.div
@@ -57,7 +53,7 @@ const Reveal = ({
         type: "spring",
         stiffness: 120,
         damping: 12,
-        delay: delay
+        delay: delay,
       }}
     >
       {children}

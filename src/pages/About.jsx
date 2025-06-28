@@ -67,18 +67,16 @@ const AboutPage = () => {
 
   useEffect(() => {
     if (location.hash) {
-      // Give the browser 100 milliseconds to render images before scrolling
       const timer = setTimeout(() => {
         const element = document.getElementById(location.hash.substring(1));
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }, 100);
 
-      return () => clearTimeout(timer); // Cleanup the timer
+      return () => clearTimeout(timer);
     }
   }, [location]);
-
 
   return (
     <motion.div
@@ -88,8 +86,8 @@ const AboutPage = () => {
       variants={pageVariants}
       transition={pageTransition}
     >
-        <ParticlesBackground/>
-        <CustomCursor/>
+      <ParticlesBackground />
+      <CustomCursor />
       <div className="container">
         <Header navLinks={navLinks} />
         <div className="vertical-text-widget">
@@ -101,50 +99,49 @@ const AboutPage = () => {
             <div className="about-content">
               <div className="heading">
                 <Reveal>
-                <span>Who is</span>
+                  <span>Who is</span>
                 </Reveal>
                 <Reveal delay={0.1}>
                   <h1>Raja Ali Sher</h1>
-                  </Reveal>
-
+                </Reveal>
               </div>
               <Reveal delay={0.2}>
-              <p>
-                He stands as the <strong>founder</strong> of The Creed's
-                creative agency, wielding the art of video editing like a
-                sharpened blade. He speaks not in riddles but with clarity and
-                purpose—direct, unwavering, and swift. He seeks not idle
-                chatter, but understanding forged through conversation. Time is
-                sacred, and he wastes none—not his own, and never his client's.
-              </p>
+                <p>
+                  He stands as the <strong>founder</strong> of The Creed's
+                  creative agency, wielding the art of video editing like a
+                  sharpened blade. He speaks not in riddles but with clarity and
+                  purpose—direct, unwavering, and swift. He seeks not idle
+                  chatter, but understanding forged through conversation. Time
+                  is sacred, and he wastes none—not his own, and never his
+                  client's.
+                </p>
               </Reveal>
 
               {/* Added: The "Talk to him" button was missing. It now correctly links to the contact section on the homepage. */}
               <Reveal delay={0.25}>
-              <a href="/#contact" className="btn">
-                Talk to him
-              </a>
+                <a href="/#contact" className="btn">
+                  Talk to him
+                </a>
               </Reveal>
               <Reveal delay={0.3}>
-
-              <div className="quote-section">
-                <div className="quote-icons">
-                  {/* Fixed: Image paths now correctly use the publicUrl variable */}
-                  <a id="mail" href="mailto:alisocial233@gmail.com">
-                    <img src={`${publicUrl}/mail.png`} alt="Mail Icon" />
-                  </a>
-                  <a href="tel:+923020887777">
-                    <img src={`${publicUrl}/phone.png`} alt="Phone Icon" />
-                  </a>
+                <div className="quote-section">
+                  <div className="quote-icons">
+                    {/* Fixed: Image paths now correctly use the publicUrl variable */}
+                    <a id="mail" href="mailto:alisocial233@gmail.com">
+                      <img src={`${publicUrl}/mail.png`} alt="Mail Icon" />
+                    </a>
+                    <a href="tel:+923020887777">
+                      <img src={`${publicUrl}/phone.png`} alt="Phone Icon" />
+                    </a>
+                  </div>
+                  <div className="quote-text">
+                    <p>
+                      "Man cannot remake himself without suffering, for he is
+                      both the marble and the sculptor"
+                    </p>
+                    <span>- Alexis Carrel</span>
+                  </div>
                 </div>
-                <div className="quote-text">
-                  <p>
-                    "Man cannot remake himself without suffering, for he is both
-                    the marble and the sculptor"
-                  </p>
-                  <span>- Alexis Carrel</span>
-                </div>
-              </div>
               </Reveal>
             </div>
 

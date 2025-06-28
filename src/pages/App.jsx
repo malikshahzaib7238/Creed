@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/index.css";
-import { motion } from "framer-motion"; // Import motion
+import { motion } from "framer-motion";
 
 import SideWidgets from "../components/SideWidgets";
 import Header from "../components/Header";
@@ -85,7 +85,7 @@ const HomePage = () => {
       transition={pageTransition}
     >
       <ParticlesBackground />
-      <CustomCursor/>
+      <CustomCursor />
       <div id="top">
         <SideWidgets />
         <div className="container">

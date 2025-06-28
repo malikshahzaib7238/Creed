@@ -41,7 +41,7 @@ const ContactSection = () => {
                 +(92)3020887777
               </p>
             </div>
-          {/* </div> */}
+            {/* </div> */}
           </Reveal>
           <img
             className="btw-form"
@@ -49,33 +49,33 @@ const ContactSection = () => {
             alt="form separator"
           />
           <Reveal>
-          <div className="contact-form-container">
-            <h3>Contact Form</h3>
-            <form action="#" method="post">
-              <input
-                type="text"
-                name="firstname"
-                placeholder="First Name"
-                required
-              />
-              <input
-                type="text"
-                name="lastname"
-                placeholder="Last Name"
-                required
-              />
-              <input type="email" name="email" placeholder="Email" required />
-              <textarea
-                name="message"
-                rows="4"
-                placeholder="Message (Optional)"
-              ></textarea>
-              <button type="submit" className="btn">
-                Send Form
-              </button>
-            </form>
-          </div>
-        </Reveal>
+            <div className="contact-form-container">
+              <h3>Contact Form</h3>
+              <form action="#" method="post">
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="First Name"
+                  required
+                />
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last Name"
+                  required
+                />
+                <input type="email" name="email" placeholder="Email" required />
+                <textarea
+                  name="message"
+                  rows="4"
+                  placeholder="Message (Optional)"
+                ></textarea>
+                <button type="submit" className="btn">
+                  Send Form
+                </button>
+              </form>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Reveal from "../hooks/Reveal";
-import "../styles/index.css"
+import "../styles/index.css";
 const slides = [
   {
     mainImage: "midmain.png",
@@ -54,8 +54,8 @@ const PortfolioSection = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <section className="portfolio-section" id="portfolio" >
-      <div className="container" style={{ overflow: 'hidden' }}>
+    <section className="portfolio-section" id="portfolio">
+      <div className="container" style={{ overflow: "hidden" }}>
         {/* Wrap the testimonial block */}
         <Reveal>
           <div className="testimonial">
@@ -73,7 +73,7 @@ const PortfolioSection = () => {
         </Reveal>
 
         {/* Wrap the chevron arrow */}
-        <Reveal >
+        <Reveal>
           <img
             src={`${publicUrl}/down.png`}
             className="nav-chevron down"
@@ -83,30 +83,21 @@ const PortfolioSection = () => {
 
         {/* Wrap the entire gallery container */}
         <Reveal>
-        <div className="gallery" >
-
-        <img
-            className="left" /* ... */ onClick={handlePrev} src="/left.png"
-          />
-          <img
-            src={`${publicUrl}/midside.png`} /* ... */ className="side-image"
-          />
-          <img
-            src={`${publicUrl}/${currentSlide.mainImage}`} /* ... */
-            className="main-image"
-            style={{ opacity: isFading ? 0 : 1 }}
-          />
-          <img
-            src={`${publicUrl}/midside.png`} /* ... */ className="side-image"
-          />
-          <img
-            className="right" /* ... */ onClick={handleNext} src="/right.png"
-          />
+          <div className="gallery">
+            <img className="left" onClick={handlePrev} src="/left.png" />
+            <img src={`${publicUrl}/midside.png`} className="side-image" />
+            <img
+              src={`${publicUrl}/${currentSlide.mainImage}`}
+              className="main-image"
+              style={{ opacity: isFading ? 0 : 1 }}
+            />
+            <img src={`${publicUrl}/midside.png`} className="side-image" />
+            <img className="right" onClick={handleNext} src="/right.png" />
           </div>
         </Reveal>
 
         {/* Wrap the bottom text and button block */}
-<Reveal>
+        <Reveal>
           <div className="flex-portfolio">
             <img
               src={`${publicUrl}/${currentSlide.titleImage}`}
@@ -120,10 +111,10 @@ const PortfolioSection = () => {
               Contact Me
             </a>
             {/* </Reveal> */}
-      {/* </Reveal> */}
-      </div>
-      </Reveal>
+            {/* </Reveal> */}
           </div>
+        </Reveal>
+      </div>
     </section>
   );
 };
