@@ -192,18 +192,55 @@ a {
   justify-content: center;
 }
 .gallery {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  /* z-index: -1; */
   margin-bottom: 60px;
   margin-top: 65px;
-  gap: 75px;
+  /* margin-left: 40px; */
+  gap: 45px;
+  /* height: 450px; */
 }
-.gallery img {
+.gallery video {
   height: auto;
-  width: 30%;
+  width: 20%;
+  cursor: pointer;
 }
 .gallery .main-image {
   width: 32%;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
+  /* transform: translateX(-50%) scale(1); Centered and full size */
+
   margin-bottom: 5.1%;
+}
+
+
+/* General styling for all videos within the gallery */
+.gallery video {
+  /* z-index: -1; */
+  height: auto; /* Allow height to adjust proportionally to width */
+  width: 30%; /* Sets the width for side videos and as a base for the main video */
+  /* display: block; Removes any extra space below the video element */
+  /* object-fit: cover; Ensures video covers the element's area, cropping if necessary */
+  /* You might want to add some border-radius or shadows here for styling */
+}
+
+/* Styling for the main video */
+.gallery .main-video {
+  width: 32%; /* Slightly larger width for the main video */
+  transform: scale(1.1); /* Scales the video up */
+  margin-bottom: 5.1%; /* Maintains the margin */
+  /* You might also consider adding a z-index if you have overlapping elements */
+  /* z-index: 10; */
+}
+
+/* If you still have specific image elements (e.g., arrows) within the gallery, keep their rules: */
+.gallery img {
+  /* These rules would apply to your navigation arrows if they are images */
+  /* Example: */
+  height: auto;
+  width: auto; /* Or a fixed width/height for arrows */
 }
 .portfolio-btn {
   display: inline-block;
@@ -387,17 +424,17 @@ a {
 }
 .side-icons-left {
   position: absolute;
-  left: 2%;
+  left: 1%;
   top: 105%;
   transform: translateY(-50%);
   transform: scale(0.9);
   display: flex;
   flex-direction: column;
   gap: 40px;
-  z-index: 1000;
+  z-index: 10000000000;
 }
 .side-icons-left a {
-  z-index: 1000000;
+  z-index: 1000000000;
   pointer-events: auto;
 }
 .btw-form,

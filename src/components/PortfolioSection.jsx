@@ -1,62 +1,168 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Reveal from "../hooks/Reveal";
 import "../styles/index.css";
+
 const slides = [
   {
-    mainImage: "midmain.png",
+    mainVideo: "vid1.mp4",
     titleImage: "text_center.png",
     subtitleText:
       "We cater to clients of every scale, always upholding a standard of excellence.",
   },
   {
-    mainImage: "midside.png",
+    mainVideo: "vid2.mp4",
     titleImage: "text_center.png",
-    subtitleText: "Our second sculpture explores the theme of heroic triumph.",
+    subtitleText:
+      "We cater to clients of every scale, always upholding a standard of excellence.",
+  },
+  {
+    mainVideo: "vid3.mp4",
+    titleImage: "text_center.png",
+    subtitleText:
+      "We cater to clients of every scale, always upholding a standard of excellence.",
+  },
+  {
+    mainVideo: "vid4.mp4",
+    titleImage: "text_center.png",
+    subtitleText:
+      "We cater to clients of every scale, always upholding a standard of excellence.",
+  },
+  {
+    mainVideo: "vid5.mp4",
+    titleImage: "text_center.png",
+    subtitleText:
+      "We cater to clients of every scale, always upholding a standard of excellence.",
+  },
+  {
+    mainVideo: "vid6.mp4",
+    titleImage: "text_center.png",
+    subtitleText:
+      "We cater to clients of every scale, always upholding a standard of excellence.",
   },
 ];
 
 const PortfolioSection = () => {
   const publicUrl = process.env.PUBLIC_URL;
-
+  const cursorBladeRef = useRef(null);
+  const cursorParticleRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const [isFading, setIsFading] = useState(false);
+  const mainVideoRef = useRef(null);
 
   useEffect(() => {
     if (isFading) {
       const timer = setTimeout(() => {
-        const nextIndex = (currentIndex + 1) % slides.length;
-        setCurrentIndex(nextIndex);
         setIsFading(false);
       }, 300);
       return () => clearTimeout(timer);
+    } else if (mainVideoRef.current) {
+      mainVideoRef.current.load();
+      mainVideoRef.current.play().catch((error) => {
+        console.warn("Video play was interrupted or failed:", error);
+      });
     }
   }, [isFading, currentIndex]);
 
   const handleNext = () => {
     if (!isFading) {
       setIsFading(true);
+
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }
   };
 
   const handlePrev = () => {
     if (!isFading) {
-      const timer = setTimeout(() => {
-        const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-        setCurrentIndex(prevIndex);
-        setIsFading(false);
-      }, 300);
       setIsFading(true);
-      return () => clearTimeout(timer);
+
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
+      );
     }
   };
 
+  const handleSideVideoClick = (indexToMakeMain) => {
+    if (!isFading && indexToMakeMain !== currentIndex) {
+      setIsFading(true);
+      setCurrentIndex(indexToMakeMain);
+    }
+  };
+
+  useEffect(() => {
+    const videos = document.querySelectorAll(".gallery video");
+    const customCursorBlade = cursorBladeRef.current;
+    const customCursorParticle = cursorParticleRef.current;
+
+    const originalBladeZIndex = customCursorBlade
+      ? getComputedStyle(customCursorBlade).zIndex
+      : "auto";
+    const originalParticleZIndex = customCursorParticle
+      ? getComputedStyle(customCursorParticle).zIndex
+      : "auto";
+
+    const highZIndex = "99999999999999";
+
+    const handleMouseEnter = () => {
+      if (customCursorBlade) {
+        customCursorBlade.style.zIndex = highZIndex;
+      }
+      if (customCursorParticle) {
+        customCursorParticle.style.zIndex = (
+          parseInt(highZIndex) - 1
+        ).toString();
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (customCursorBlade) {
+        customCursorBlade.style.zIndex = originalBladeZIndex;
+      }
+      if (customCursorParticle) {
+        customCursorParticle.style.zIndex = originalParticleZIndex;
+      }
+    };
+
+    videos.forEach((video) => {
+      video.addEventListener("mouseenter", handleMouseEnter);
+      video.addEventListener("mouseleave", handleMouseLeave);
+    });
+
+    return () => {
+      videos.forEach((video) => {
+        video.removeEventListener("mouseenter", handleMouseEnter);
+        video.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, []);
+
   const currentSlide = slides[currentIndex];
 
+  const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+  const nextIndex = (currentIndex + 1) % slides.length;
+
+  const renderVideos = () => {
+    return slides.map((slide, index) => {
+      let videoClassName = "gallery-video";
+      let zIndex = 1;
+
+      if (index === currentIndex) {
+        videoClassName += " main-video";
+        zIndex = 10;
+      } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
+        videoClassName += " side-video prev-video";
+        zIndex = 5;
+      } else if (index === (currentIndex + 1) % slides.length) {
+        videoClassName += " side-video next-video";
+        zIndex = 5;
+      } else {
+        videoClassName += " hidden-video";
+        zIndex = 1;
+      }
+    });
+  };
   return (
     <section className="portfolio-section" id="portfolio">
       <div className="container" style={{ overflow: "hidden" }}>
-        {/* Wrap the testimonial block */}
         <Reveal>
           <div className="testimonial">
             <div className="image-container">
@@ -72,7 +178,6 @@ const PortfolioSection = () => {
           </div>
         </Reveal>
 
-        {/* Wrap the chevron arrow */}
         <Reveal>
           <img
             src={`${publicUrl}/down.png`}
@@ -81,27 +186,69 @@ const PortfolioSection = () => {
           />
         </Reveal>
 
-        {/* Wrap the entire gallery container */}
         <Reveal>
           <div className="gallery">
-            <img className="left" onClick={handlePrev} src="/left.png" />
-            <img src={`${publicUrl}/midside.png`} className="side-image" />
+            {/* Left Arrow (hidden on large screens via CSS) */}
             <img
-              src={`${publicUrl}/${currentSlide.mainImage}`}
-              className="main-image"
-              style={{ opacity: isFading ? 0 : 1 }}
+              className="left"
+              onClick={handlePrev}
+              src="/left.png"
+              alt="Previous video"
             />
-            <img src={`${publicUrl}/midside.png`} className="side-image" />
-            <img className="right" onClick={handleNext} src="/right.png" />
+
+            {/* Previous Video (left side) */}
+            {renderVideos()}
+
+            <video
+              key={`prev-${prevIndex}`}
+              src={`${publicUrl}/${slides[prevIndex].mainVideo}`}
+              className="side-image"
+              loop
+              playsInline
+              preload="auto"
+              onClick={() => handleSideVideoClick(prevIndex)}
+              style={{ zIndex: -1 }}
+            />
+
+            {/* Main Video (center) */}
+            <video
+              key={`main-${currentIndex}`}
+              ref={mainVideoRef}
+              src={`${publicUrl}/${currentSlide.mainVideo}`}
+              className="main-image"
+              autoPlay
+              loop
+              playsInline
+              preload="auto"
+              style={{ opacity: isFading ? 0 : 1, zIndex: -100 }}
+            />
+
+            {/* Next Video (right side) */}
+            <video
+              key={`next-${nextIndex}`}
+              src={`${publicUrl}/${slides[nextIndex].mainVideo}`}
+              className="side-image"
+              loop
+              playsInline
+              preload="auto"
+              onClick={() => handleSideVideoClick(nextIndex)}
+            />
+
+            {/* Right Arrow (hidden on large screens via CSS) */}
+            <img
+              className="right"
+              onClick={handleNext}
+              src="/right.png"
+              alt="Next video"
+            />
           </div>
         </Reveal>
 
-        {/* Wrap the bottom text and button block */}
         <Reveal>
           <div className="flex-portfolio">
             <img
               src={`${publicUrl}/${currentSlide.titleImage}`}
-              alt=""
+              alt="Section title"
               style={{ opacity: isFading ? 0 : 1 }}
             />
             <p className="subtitle" style={{ opacity: isFading ? 0 : 1 }}>
@@ -110,8 +257,6 @@ const PortfolioSection = () => {
             <a href="#contact" className="portfolio-btn">
               Contact Me
             </a>
-            {/* </Reveal> */}
-            {/* </Reveal> */}
           </div>
         </Reveal>
       </div>
