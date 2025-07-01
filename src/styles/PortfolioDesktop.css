@@ -1,0 +1,301 @@
+/* ==========================================================================
+   1. Video Modal Styles
+   ========================================================================== */
+
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  max-width: 1600px; /* Optional: max width for ultra-wide screens */
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-section{
+    margin:0 40px;
+}
+
+.full-screen-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5em;
+  z-index: 1001;
+  line-height: 1;
+}
+.minimize{
+    transform: scale(0.4);
+    position: relative;
+}
+
+/* ==========================================================================
+     2. Gallery Layout & Navigation
+     ========================================================================== */
+
+/*
+   * The container that absorbs the <Reveal> animation and holds the perspective
+   * for the 3D effect. Height MUST be defined here.
+   */
+.gallery-container {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  perspective: 1200px;
+  /* margin-left: 100px; */
+}
+
+/* The direct parent for the animating thumbnail wrappers. */
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.nav-arrow:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow.left {
+  left: 10px;
+}
+.nav-arrow.right {
+  right: 10px;
+}
+
+/* ==========================================================================
+     3. Thumbnail Item Positioning & Default States
+     ========================================================================== */
+
+.thumbnail-wrapper {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform, opacity, filter; /* Performance hint */
+  transition: filter 0.6s ease-in-out; /* Smooths blur transitions */
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* State for the thumbnail on the left */
+.prev-wrapper {
+  transform: translateX(-65%) scale(0.7);
+  opacity: 0.5;
+  filter: blur(4px);
+  z-index: 1;
+}
+
+/* State for the main, centered thumbnail */
+.main-wrapper {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  filter: blur(0);
+  z-index: 2;
+}
+
+/* State for the thumbnail on the right */
+.next-wrapper {
+  transform: translateX(65%) scale(0.7);
+  opacity: 0.5;
+  filter: blur(4px);
+  z-index: 1;
+}
+
+/* ==========================================================================
+     4. Play Button
+     ========================================================================== */
+
+.play-button {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  border: none;
+  z-index: 3;
+
+  /* Initial state: hidden and slightly smaller */
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* When the parent wrapper is .main-wrapper, the button becomes visible and animates */
+.main-wrapper .play-button {
+  opacity: 1;
+  transform: scale(1);
+  animation: heartbeat-glow 2.5s infinite ease-in-out;
+}
+
+.play-button svg {
+  width: 100%;
+  height: 100%;
+  /* The glow effect is handled by the parent's animation */
+}
+
+/* ==========================================================================
+     5. Keyframe Animations
+     ========================================================================== */
+
+/* --- Triggers for the cover-flow animation --- */
+
+.gallery.animating-next .main-wrapper,
+.gallery.animating-prev .main-wrapper,
+.gallery.animating-next .next-wrapper,
+.gallery.animating-prev .prev-wrapper,
+.gallery.animating-next .prev-wrapper,
+.gallery.animating-prev .next-wrapper {
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.gallery.animating-next .main-wrapper {
+  animation-name: slide-to-left;
+}
+.gallery.animating-next .next-wrapper {
+  animation-name: slide-from-right;
+}
+.gallery.animating-next .prev-wrapper {
+  animation-name: fade-out;
+}
+
+.gallery.animating-prev .main-wrapper {
+  animation-name: slide-to-right;
+}
+.gallery.animating-prev .prev-wrapper {
+  animation-name: slide-from-left;
+}
+.gallery.animating-prev .next-wrapper {
+  animation-name: fade-out;
+}
+
+/* --- Cover-flow animation definitions --- */
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-65%) scale(0.7);
+    opacity: 0.5;
+    z-index: 1;
+  }
+}
+
+@keyframes slide-to-right {
+  to {
+    transform: translateX(65%) scale(0.7);
+    opacity: 0.5;
+    z-index: 1;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(65%) scale(0.7);
+    opacity: 0.5;
+    z-index: 1;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-65%) scale(0.7);
+    opacity: 0.5;
+    z-index: 1;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* --- Play button heartbeat animation --- */
+
+@keyframes heartbeat-glow {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px #d2ad75)
+      drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+  }
+  20% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px #d2ad75)
+      drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+  }
+  40% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px #d2ad75)
+      drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px #d2ad75)
+      drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+  }
+}
+
+.flex-portfolio {
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4%;
+    gap: -30px;
+    margin-bottom: 20px;
+  }
