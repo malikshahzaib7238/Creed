@@ -1,17 +1,12 @@
 import React from "react";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 /**
  * A reusable component to animate its children when they scroll into view.
  *
- * @param {object} props
- * @param {React.ReactNode} props.children The content to animate.
- * @param {string} [props.className] Optional CSS classes to apply to the component.
- * @param {number} [props.delay=0] Optional delay for the animation.
- * @param {string} [props.direction="up"] The direction the element moves from.
- * @param {number} [props.distance=80] The distance the element moves from.
- * @param {number} [props.rotate=0] The static rotation to apply throughout the animation.
- *
+ * ... (your existing props documentation) ...
+ * @param {function} [props.onRevealComplete] Callback fired when the "visible" animation finishes.
+ * @param {function} [props.onHideComplete] Callback fired when the "hidden" animation finishes (on scroll out).
  */
 const Reveal = ({
   children,
@@ -21,6 +16,9 @@ const Reveal = ({
   distance = 80,
   rotate = 0,
   scale = 1,
+  // CHANGE: Add new callback props with default empty functions
+  onRevealComplete = () => {},
+  onHideComplete = () => {},
 }) => {
   const variants = {
     hidden: {
@@ -29,7 +27,6 @@ const Reveal = ({
         direction === "left" ? -distance : direction === "right" ? distance : 0,
       y: direction === "up" ? distance : direction === "down" ? -distance : 0,
       rotate: rotate,
-
       scale: scale,
     },
     visible: {
@@ -37,7 +34,6 @@ const Reveal = ({
       x: 0,
       y: 0,
       rotate: rotate,
-
       scale: scale,
     },
   };
@@ -48,12 +44,21 @@ const Reveal = ({
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.5 }}
+      // Note: `once: false` is important for this to work on scroll-out
+      viewport={{ once: false, amount: 0.2 }}
       transition={{
         type: "spring",
         stiffness: 120,
         damping: 12,
         delay: delay,
+      }}
+      // CHANGE: Add the onAnimationComplete handler
+      onAnimationComplete={(definition) => {
+        if (definition === "visible") {
+          onRevealComplete();
+        } else if (definition === "hidden") {
+          onHideComplete();
+        }
       }}
     >
       {children}

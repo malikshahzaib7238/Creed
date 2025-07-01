@@ -1,29 +1,51 @@
 import React, { useState, useEffect, useRef } from "react";
 import Reveal from "../hooks/Reveal";
+import useWindowSize from "../hooks/useWindowSize";
 import "../styles/index.css";
 
 const slides = [
   {
-    mainVideo: "vid1.mp4"
+    mainVideo: "vid1.mp4",
+    thumbnail: "./thumbnail1.jpg",
+    titleImage: "text_center.png",
+    subtitleText:
+      "We cater to clients of every scale, always upholding a standard of excellence.",
   },
   {
-    mainVideo: "vid2.mp4"
+    mainVideo: "vid2.mp4",
+    thumbnail: "./thumbnail2.jpg",
+    titleImage: "text_center.png",
+    subtitleText: "Our work is crafted with precision and passion.",
   },
   {
-    mainVideo: "vid3.mp4"
+    mainVideo: "vid3.mp4",
+    thumbnail: "./thumbnail3.jpg",
+    titleImage: "text_center.png",
+    subtitleText: "Delivering dynamic visuals that captivate and engage.",
   },
   {
-    mainVideo: "vid4.mp4"
+    mainVideo: "vid4.mp4",
+    thumbnail: "./thumbnail4.jpg",
+    titleImage: "text_center.png",
+    subtitleText: "Excellence is not an act, but a habit.",
   },
   {
-    mainVideo: "vid5.mp4"
+    mainVideo: "vid5.mp4",
+    thumbnail: "./thumbnail5.jpg",
+    titleImage: "text_center.png",
+    subtitleText: "Pushing the boundaries of creative video editing.",
   },
   {
-    mainVideo: "vid6.mp4"
+    mainVideo: "vid6.mp4",
+    thumbnail: "./thumbnail6.jpg",
+    titleImage: "text_center.png",
+    subtitleText: "Your vision, brought to life with stunning visuals.",
   },
 ];
 
-const PortfolioSection = () => {
+const PortfolioDesktop = () => {
+  const { isMobile } = useWindowSize();
+
   const publicUrl = process.env.PUBLIC_URL;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
@@ -31,6 +53,7 @@ const PortfolioSection = () => {
 
   const [canVideoPlay, setCanVideoPlay] = useState(false);
 
+  // CHANGE: Simplified useEffect to control video playback
   useEffect(() => {
     if (isFading) {
       const timer = setTimeout(() => setIsFading(false), 300);
@@ -39,16 +62,18 @@ const PortfolioSection = () => {
 
     const videoElement = mainVideoRef.current;
     if (videoElement) {
+      // Play only if the component is revealed and not currently fading
       if (canVideoPlay && !isFading) {
         videoElement.load();
         videoElement.play().catch((error) => {
           console.warn("Video play was prevented:", error);
         });
       } else {
+        // Pause if the component is hidden or fading
         videoElement.pause();
       }
     }
-  }, [isFading, currentIndex, canVideoPlay]);
+  }, [isFading, currentIndex, canVideoPlay]); // Depend on our new state
 
   const handleNext = () => {
     if (!isFading) {
@@ -121,16 +146,18 @@ const PortfolioSection = () => {
 
             {/* Previous Video (left side) */}
 
-            <video
+            {/* <video
               key={`prev-${prevIndex}`}
               src={`${publicUrl}/${slides[prevIndex].mainVideo}`}
               className="side-image"
-              muted
+              // loop
+              // muted
+              autoPlay
               playsInline
               preload="auto"
               onClick={() => handleSideVideoClick(prevIndex)}
               style={{ zIndex: -1 }}
-            />
+            /> */}
 
             {/* Main Video (center) */}
             <video
@@ -139,17 +166,21 @@ const PortfolioSection = () => {
               src={`${publicUrl}/${currentSlide.mainVideo}`}
               className="main-image"
               autoPlay
+              // loop
+              // muted
               playsInline
               preload="auto"
               style={{ opacity: isFading ? 0 : 1, zIndex: -100 }}
             />
+            <div>I am desktop</div>
 
             {/* Next Video (right side) */}
             <video
               key={`next-${nextIndex}`}
               src={`${publicUrl}/${slides[nextIndex].mainVideo}`}
               className="side-image"
-              muted
+              // loop
+              // muted
               playsInline
               preload="auto"
               onClick={() => handleSideVideoClick(nextIndex)}
@@ -168,13 +199,12 @@ const PortfolioSection = () => {
         <Reveal>
           <div className="flex-portfolio">
             <img
-              src="./text_center.png"
+              src={`${publicUrl}/${currentSlide.titleImage}`}
               alt="Section title"
               style={{ opacity: isFading ? 0 : 1 }}
             />
             <p className="subtitle" style={{ opacity: isFading ? 0 : 1 }}>
-              We cater to clients of every scale, always upholding a standard of
-              excellence.
+              {currentSlide.subtitleText}
             </p>
             <a href="#contact" className="portfolio-btn">
               Contact Me
@@ -186,4 +216,4 @@ const PortfolioSection = () => {
   );
 };
 
-export default PortfolioSection;
+export default PortfolioDesktop;

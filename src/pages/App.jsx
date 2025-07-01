@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../styles/index.css";
 import { motion } from "framer-motion";
-
+import useWindowSize from "../hooks/useWindowSize";
 import SideWidgets from "../components/SideWidgets";
 import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
@@ -11,6 +11,7 @@ import ContactSection from "../components/ContactSection";
 import MobileNavbar from "../components/MobileNavbar";
 import ParticlesBackground from "../hooks/ParticlesBackground";
 import CustomCursor from "../hooks/CustomCursor";
+import PortfolioDesktop from "../components/PortfolioDesktop";
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -63,7 +64,7 @@ const mobileNavLinks = [
 
 const HomePage = () => {
   const location = useLocation();
-
+  const { isMobile } = useWindowSize();
   useEffect(() => {
     if (location.hash) {
       const timer = setTimeout(() => {
@@ -91,7 +92,7 @@ const HomePage = () => {
         <div className="container">
           <Header navLinks={navLinks} />
           <HeroSection />
-          <PortfolioSection />
+          {isMobile? <PortfolioSection /> : <PortfolioDesktop/>}
           <ContactSection />
         </div>
         <MobileNavbar navLinks={mobileNavLinks} />
